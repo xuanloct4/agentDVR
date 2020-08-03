@@ -1,0 +1,19 @@
+﻿{
+  "header": "Detector",
+  "okResult": "UploadJSON",
+  "name": "EditDetector",
+  "sections": [
+    {
+      "header": "Detector",
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "Not Editable",
+          "value": "",
+          "type": "Header",
+          "help": "This type is not editable"
+        }
+      ]
+    }
+  ]
+}

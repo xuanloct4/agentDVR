@@ -1,0 +1,9 @@
+﻿[
+    { "text": "Dummy", "value": "", "type": "Header", "notranslate": true  },
+    { "text": "width", "value": "", "type": "Int32", "max": 4096, "min": 320, "bindto": "width" },
+    { "text": "height", "value": "", "type": "Int32", "max": 4096, "min": 240, "bindto": "height" },  
+    { "text": "framerate", "value": "", "type": "Int32", "bindto": "settings.framerate" },
+    { "text": "backcolor", "value": "", "type": "Color", "bindto": "settings.videosourcestring", "converter": "rgbtohex"  },
+    { "text": "dummyimage", "value": "", "type": "String", "bindto": "settings.image", "help": "" }
+]
+

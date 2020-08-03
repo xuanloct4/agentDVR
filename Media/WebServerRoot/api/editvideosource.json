@@ -1,0 +1,52 @@
+﻿{
+    "header": "Video Source",
+    "okResult": "UploadJSON",
+    "name": "EditVideoSource",
+    "sections": [
+      {
+        "header": "Video Source",
+        "displayType": "Form",
+        "items": "SOURCEEDITOR"
+      },
+      {
+        "header": "Advanced",
+        "displayType": "Form",
+        "items": [
+            { "text": "GPU", "value": "", "type": "Int32", "max": 10, "min": 0, "bindto": "gpu.index" },
+            { "text": "Cookies", "value": "", "type": "String", "bindto": "settings.cookies" },
+            { "text": "Basic Authentication", "value": "", "type": "Boolean", "bindto": "settings.forcebasic" },
+            { "text": "Use HTTP 1.0", "value": "", "type": "Boolean", "bindto": "settings.usehttp10" },
+            { "text": "Headers", "value": "", "type": "String", "bindto": "settings.headers", "help": "HTTP Headers to send in the request" },
+            { "text": "User Agent", "value": "", "type": "String", "bindto": "settings.useragent"},
+            { "text": "Resize Width", "value": "", "type": "Int32", "max": 9999, "min": 0, "bindto": "settings.resizewidth", "help": "Enter 0 for automatic"  },
+            { "text": "Resize Height", "value": "", "type": "Int32", "max": 9999, "min": 0, "bindto": "settings.resizeheight", "help": "Enter 0 for automatic" },
+            { "text": "Connection Timeout", "value": "", "type": "Int32", "min": 100, "max": 60000, "bindto": "settings.timeout", "help": "Time in milliseconds to timeout network connections" },
+            { "text": "Reconnect Interval", "value": "", "type": "Int32", "min": 0, "max": 60000, "bindto": "settings.reconnectinterval", "help": "Time in seconds between automated reconnects (0=never)" },
+            { "text": "vlcoptions", "value": "", "type": "TextArea", "bindto": "settings.vlcoptions", "help": "" }
+        ]
+      },
+      {
+        "header": "FFMPEG",
+        "displayType": "Form",
+        "items": [
+            { "text": "ffmpegbuffer", "value": "", "type": "Int32", "max": 10000, "min": 0, "bindto": "settings.rtbufsizekb", "help": ""},
+            {
+                "text": "RTSP Mode",
+                "value": "",
+                "type": "Select",
+                "bindto": "settings.rtspmode",
+                "options": [
+                    { "text": "Auto", "value": 0, "noTranslate": true  },
+                    { "text": "TCP", "value": 1, "noTranslate": true  },
+                    { "text": "UDP", "value": 2, "noTranslate": true  },
+                    { "text": "UDP Multicast", "value": 3, "noTranslate": true },
+                    { "text": "HTTP Tunneling", "value": 4, "noTranslate": true  }
+                ]
+            },
+            { "text": "PreferTCP", "value": "", "type": "Boolean", "bindto": "settings.prefer_tcp" },
+            { "text": "AnalyseDuration", "value": " ", "type": "Int32", "max": 30, "min": 0, "bindto": "settings.analyseduration", "help": ""},
+            { "text": "Options", "value": "", "type": "TextArea", "bindto": "settings.ffmpegoptions", "help": "" }        
+        ]
+      }
+    ]
+}

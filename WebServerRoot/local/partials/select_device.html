@@ -1,0 +1,15 @@
+﻿<div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" data-bind="text:$root.translate('SelectDevice')"></h5>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <select class="form-control" data-bind="options: $root.deviceList($data.typeID()), optionsText: 'name', optionsValue: 'obj', value:deviceID"></select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="editing.ui.ok()" class="btn btn-primary" data-bind="text:$root.translate('OK')"></button><button type="button" onclick="editing.ui.close()" class="btn btn-warning" data-bind="text:$root.translate('Cancel')"></button>
+            </div>
+        </div>
+    </div>
+</div>

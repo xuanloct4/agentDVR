@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Server Status</title>
+    <link href="css/status.css" rel="stylesheet" />
+    <script src="script/jquery.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="script/jquery-ui.min.js"></script>
+    <style>
+        ul.tabs {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+            ul.tabs li {
+                background: none;
+                color: #222;
+                display: inline-block;
+                padding: 10px 15px;
+                cursor: pointer;
+            }
+
+                ul.tabs li.current {
+                    background: #ededed;
+                    color: #222;
+                }
+
+        .tab-content {
+            display: none;
+            background: #ededed;
+            padding: 15px;
+        }
+
+            .tab-content.current {
+                display: inherit;
+            }
+    </style>
+    <script type="text/javascript">
+        var tabs = [{ id: "tab-1", loaded: false, type: "message" }, { id: "tab-2", loaded: false, type: "ffmpeg" }, { id: "tab-3", loaded: false, type: "webrtc" }];
+        var tabId = "tab-1";
+
+        function getTab(id) {
+            for (var i = 0; i < tabs.length; i++) {
+                var tab = tabs[i];
+                if (tab.id === id)
+                    return tab;
+            }
+            return null;
+        }
+
+        $(document).ready(function () {
+
+            $('ul.tabs li').click(function () {
+                tabId = $(this).attr('data-tab');
+
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+
+                $(this).addClass('current');
+                $("#" + tabId).addClass('current');
+
+                var tab = getTab(tabId);
+                if (!tab.loaded)
+                    loadtab(tab);
+            });
+
+            function loadtab(tab) {
+                $.ajax
+                    ({
+                        type: "POST",
+                        url: "jsonprocessor.html",
+                        async: true,
+                        dataType: "json",
+                        data: JSON.stringify({ "action": "getLog", "type": tab.type }),
+                        tabId: tab.id,
+                        success: function (o) {
+                            var html = "<table class=\"data\">";
+                            $.each(o, function (index, item) {
+                                if (item != null) {
+                                    var dt = new Date(item.Created);
+                                    var eachrow = "<tr class=\"log_" + item.Type + "\">" + "<td style=\"width:120px;vertical-align:top\">" + dt.toLocaleTimeString() + "</td>" + "<td>" + item.Entry + "</td></tr>";
+                                    html += eachrow;
+                                }
+                            });
+                            html += "</table>";
+                            $("#" + this.tabId).html(html);
+                        }
+                    });
+            }
+
+            loadtab(getTab("tab-1"));
+
+        });
+    </script>
+    <style>
+        .data {
+            width: 580px;
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+        }
+
+        .data td {
+            font-family: Verdana;
+            font-size: 12px;
+            padding: 2px;
+        }
+
+        .log_Error td {
+            color: #CC0000;
+        }
+
+        .log_Message td {
+            color: #222;
+        }
+
+        .log_FFMPEG td {
+            color: #222;
+        }
+    </style>
+</head>
+<body class="statusbody">
+    <div class="container">
+        
+        <h1 class="ui-widget-header">Agent Server Logs <small>([VERSION])</small></h1>       
+        <ul class="tabs" id="TabList">
+            <li class="tab-link current" data-tab="tab-1">Log</li>
+            <li class="tab-link" data-tab="tab-2">FFMPEG Log</li>
+            <li class="tab-link" data-tab="tab-3">WebRTC Log</li>
+        </ul>
+        <div id="tab-1" class="tab-content current">loading...</div>
+        <div id="tab-2" class="tab-content">loading...</div>
+        <div id="tab-3" class="tab-content">loading...</div>
+
+    </div><!-- container -->
+</body>
+</html>

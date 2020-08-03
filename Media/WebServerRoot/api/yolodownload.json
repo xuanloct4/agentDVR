@@ -1,0 +1,21 @@
+﻿{
+  "header": "AI",
+  "okResult": "UploadJSON",
+  "name": "EditAI",
+  "sections": [
+    {
+      "header": "AI",
+      "noTranslate": true,
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "DownloadModel",
+          "value": "...",
+          "type": "Button",
+          "action": "downloadmodel",
+          "help": "downloadmodelhelp"
+        }
+      ]
+    }
+  ]
+}

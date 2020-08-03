@@ -1,0 +1,399 @@
+﻿{
+  "header": "Settings",
+  "okResult": "UploadJSON",
+  "name": "Settings",
+  "validate": true,
+  "sections": [
+    {
+      "header": "General",
+      "tabActive": true,
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "Name",
+          "value": "",
+          "type": "String",
+          "bindto": "MachineName"
+        },
+        {
+          "text": "Max CPU",
+          "value": "",
+          "type": "Int32",
+          "min": 10,
+          "max": 1000,
+          "bindto": "MaxCPU"
+        },
+        {
+          "text": "Codec",
+          "value": "",
+          "type": "Select",
+          "bindto": "Codec",
+          "options": "CODECS",
+          "noTranslate": true
+        },
+        {
+          "text": "Auto Schedule",
+          "value": false,
+          "type": "Boolean",
+          "bindto": "AutoSchedule"
+        },
+        {
+          "text": "Notify on Server Disconnect",
+          "value": false,
+          "type": "Boolean",
+          "bindto": "NotifyOnDisconnect"
+        },
+        {
+          "text": "Notify Endpoint",
+          "value": false,
+          "type": "String",
+          "bindto": "NotifyEndpoint",
+          "help": "Email address or URL"
+        },
+        {
+          "text": "VLC Directory",
+          "value": "",
+          "type": "String",
+          "bindto": "VLCDir",
+          "help": "Blank = auto detect"
+        },
+        {
+          "text": "Max MJPEG Size",
+          "value": "",
+          "type": "String",
+          "bindto": "MaxMJPEGSize"
+        },
+        {
+          "text": "Arm Delay",
+          "value": "",
+          "type": "Int32",
+          "min": 0,
+          "max": 3600,
+          "bindto": "ArmDelay",
+          "help": "ArmDelayHelp"
+        }
+      ]
+    },
+    {
+      "header": "Cloud Providers",
+      "tabActive": false,
+      "displayType": "Form",
+      "items": "CLOUDPROVIDERS"
+    },
+    {
+      "header": "Data",
+      "tabActive": false,
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "PTZ Models",
+          "type": "Button",
+          "value": "Update",
+          "action": "updatexml",
+          "parameter": "ptz"
+        },
+        {
+          "text": "Camera Definitions",
+          "type": "Button",
+          "value": "Update",
+          "action": "updatexml",
+          "parameter": "sources"
+        }
+      ]
+    },
+    {
+      "header": "FTP Servers",
+      "tabActive": false,
+      "displayType": "TableEdit",
+      "ident": "FTPServers",
+      "editJSON": "editftp",
+      "deleteJSON": "deleteftp",
+      "items": "FTPSERVERS"
+    },
+    {
+      "header": "Local Server",
+      "tabActive": false,
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "Username",
+          "value": "",
+          "type": "String",
+          "bindto": "LocalUsername"
+        },
+        {
+          "text": "LocalPassword",
+          "value": "",
+          "type": "Password",
+          "bindto": "LocalPassword",
+          "help": ""
+        },
+        {
+          "text": "API Password",
+          "value": false,
+          "type": "Boolean",
+          "bindto": "APIPassword",
+          "help": ""
+        }
+      ]
+    },
+    {
+      "header": "MQTT",
+      "tabActive": false,
+      "displayType": "Form",
+      "ident": "MQTTServer",
+      "items": [
+        {
+          "text": "Enabled",
+          "value": false,
+          "type": "Boolean",
+          "bindto": "MQTT.Enable"
+        },
+        {
+          "text": "Server",
+          "value": "",
+          "type": "String",
+          "bindto": "MQTT.Server"
+        },
+        {
+          "text": "Port",
+          "value": 1883,
+          "type": "Int32",
+          "min": 0,
+          "max": 65536,
+          "bindto": "MQTT.Port"
+        },
+        {
+          "text": "MQTTKeepAlive",
+          "value": 30,
+          "type": "Int32",
+          "min": 1,
+          "max": 3600,
+          "bindto": "MQTT.KeepAlive"
+        },
+        {
+          "text": "Protocol",
+          "value": "",
+          "type": "Select",
+          "bindto": "MQTT.Protocol",
+          "options": [
+            {
+              "text": "None",
+              "value": ""
+            },
+            {
+              "text": "TLS",
+              "value": "TLS",
+              "noTranslate": true
+            }
+          ]
+        },
+        {
+          "text": "MQTTClientID",
+          "value": "",
+          "type": "String",
+          "bindto": "MQTT.ClientID",
+          "help": "Blank = auto generate"
+        },
+        {
+          "text": "Username",
+          "value": "",
+          "type": "String",
+          "bindto": "MQTT.Username"
+        },
+        {
+          "text": "Password",
+          "value": "",
+          "type": "Password",
+          "bindto": "MQTT.Password"
+        }
+      ]
+    },
+    {
+      "header": "Playback",
+      "tabActive": false,
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "StreamFPS",
+          "value": "",
+          "type": "Int32",
+          "min": 1,
+          "max": 60,
+          "bindto": "StreamFPS",
+          "help": "Video FPS in live viewer"
+        },
+        {
+          "text": "Center Images",
+          "value": false,
+          "type": "Boolean",
+          "bindto": "MaintainAR",
+          "help": "Maintain video aspect ratio"
+        },
+        {
+          "text": "Use GPU for playback",
+          "value": true,
+          "type": "Boolean",
+          "bindto": "UseGPU",
+          "help": "Use GPU for file playback"
+        },
+        {
+          "text": "Rotate Delay",
+          "value": 4,
+          "type": "Int32",
+          "min": 1,
+          "max": 60,
+          "bindto": "RotateDelay",
+          "help": "Time in seconds between switching cameras in rotate mode"
+        },
+        {
+          "text": "JPEG Quality",
+          "value": 80,
+          "type": "Slider",
+          "range": false,
+          "min": 60,
+          "max": 100,
+          "bindto": "JPEGQuality"
+        }
+      ]
+    },
+    {
+      "header": "SMTP",
+      "tabActive": false,
+      "displayType": "Form",
+      "ident": "SMTPServer",
+      "items": [
+        {
+          "text": "Use SMTP",
+          "value": false,
+          "type": "Boolean",
+          "bindto": "UseSMTP"
+        },
+        {
+          "text": "Username",
+          "value": "",
+          "type": "String",
+          "bindto": "SMTPUsername"
+        },
+        {
+          "text": "Password",
+          "value": "",
+          "type": "Password",
+          "bindto": "SMTPPassword"
+        },
+        {
+          "text": "From Address",
+          "value": "",
+          "type": "String",
+          "bindto": "SMTPFromAddress"
+        },
+        {
+          "text": "SMTPServer",
+          "value": "",
+          "type": "String",
+          "bindto": "SMTPServer",
+          "help": "example: mail.yourserver.com"
+        },
+        {
+          "text": "Port",
+          "value": 25,
+          "type": "Int32",
+          "min": 0,
+          "max": 65536,
+          "bindto": "SMTPPort"
+        },
+        {
+          "text": "Use SSL",
+          "value": false,
+          "type": "Boolean",
+          "bindto": "SMTPSSL"
+        }
+      ]
+    },
+    {
+      "header": "Storage",
+      "tabActive": false,
+      "displayType": "TableEdit",
+      "ident": "Storage",
+      "deleteJSON": "deletestorage",
+      "editJSON": "editstorage",
+      "canAdd": true,
+      "canDelete": true,
+      "items": "DIRECTORIES"
+    },
+    {
+      "header": "Live Streaming",
+      "tabActive": false,
+      "displayType": "Form",
+      "items": [
+        {
+          "type": "Header",
+          "text": "RTMP",
+          "help": "Send your live view to streaming sites like YouTube and Twitch. To start live streaming enter your details here then use the live viewer to start/stop broadcasting."
+        },
+        {
+          "text": "URL",
+          "value": "",
+          "type": "String",
+          "bindto": "RTMP.URL",
+          "help": "For example rtmp://a.rtmp.youtube.com/live2/"
+        },
+        {
+          "text": "StreamKey",
+          "value": "",
+          "type": "String",
+          "bindto": "RTMP.StreamKey",
+          "help": "Your YouTube or Twitch Key"
+        },
+        {
+          "text": "Size",
+          "value": "",
+          "type": "Select",
+          "bindto": "RTMP.Resolution",
+          "id": "ddlRTMPResolution",
+          "options": "SIZES"
+        },
+        {
+          "text": "Quality",
+          "value": 8,
+          "min": 0,
+          "max": 10,
+          "type": "Slider",
+          "range": false,
+          "bindto": "RTMP.Quality",
+          "help": "Lower quality = less bandwidth"
+        },
+        {
+          "text": "Framerate",
+          "value": 15,
+          "min": 1,
+          "max": 60,
+          "type": "Int32",
+          "bindto": "RTMP.Framerate"
+        },
+        {
+          "text": "Encoder",
+          "value": "",
+          "type": "Select",
+          "bindto": "RTMP.Gpu",
+          "options": "ENCODERS"
+        },
+        {
+          "text": "IncludeAudio",
+          "value": false,
+          "type": "Boolean",
+          "bindto": "RTMP.Audio"
+        },
+        {
+          "text": "MaxDuration",
+          "value": 900,
+          "min": 0,
+          "max": 99999999,
+          "type": "Int32",
+          "bindto": "RTMP.MaxDuration",
+          "help": "Enter 0 for no limit"
+        }
+      ]
+    }
+  ]
+}

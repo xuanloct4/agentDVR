@@ -1,0 +1,24 @@
+﻿{
+    "header": "PTZ Schedule Entry",
+    "okResult": "UploadJSON",
+    "name": "EditPTZSchedule",
+    "ident": "new",
+    "sections": [
+        {
+            "header": "Schedule Entry",
+            "displayType": "Form",
+            "items": [
+                { "text": "Time", "step": 1, "value": "", "type": "Time", "bindto": "time", "help": "(local time at iSpy Server is TIME)","converter": "datetimetoint" },
+                { "text": "Repeat", "value": "", "type": "Int32", "bindto": "repeat", "help": "(seconds)"},
+                { "text": "RepeatCount", "value": "", "type": "Int32", "bindto": "count"},
+                {
+                    "text": "Command",
+                    "value": "",
+                    "type": "Select",
+                    "bindto": "command",
+                    "options": "PTZCOMMANDS"
+                }
+            ]
+        }
+    ]
+}

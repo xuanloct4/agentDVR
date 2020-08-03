@@ -1,0 +1,30 @@
+﻿[
+    { "text": "Network Source", "value": "", "type": "Header" },
+    { "text": "URL", "value": "", "type": "String", "bindto": "settings.sourcename" },
+    { "text": "Analyse Duration", "value": "", "type": "Int32", "min": 0, "max": 20000, "bindto": "settings.analyzeduration" },
+    {
+      "text": "Options",
+      "value": "",
+      "type": "TextArea",
+      "bindto": "settings.ffmpegoptions"
+    },
+    {
+      "text": "Decoder",
+      "value": "",
+      "type": "Select",
+      "bindto": "settings.decoder",
+      "options": [
+        {
+          "text": "FFMPEG",
+          "value": "ffmpeg",
+          "noTranslate": true
+        },
+        {
+          "text": "VLC",
+          "value": "vlc",
+          "noTranslate": true
+        }
+      ],
+      "help": ""
+    }
+]

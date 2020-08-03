@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OnvifDiscovery</name>
+    </assembly>
+    <members>
+        <member name="T:OnvifDiscovery.Client.OnvifUdpClient">
+            <summary>
+            A simple Udp client that wrapps <see cref="T:System.Net.Sockets.UdpClient"/>
+            It creates the probe messages also
+            </summary>
+        </member>
+        <member name="M:OnvifDiscovery.Common.ExtensionMethods.WithCancellation``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
+            <summary>
+            Used to provide cancellation possibility to any Async Methods returning a Task
+            </summary>
+        </member>
+        <member name="T:OnvifDiscovery.Discovery">
+            <summary>
+            Onvif Discovery, has the logic to discover onvif compliant devices on the network
+            </summary>
+        </member>
+        <member name="M:OnvifDiscovery.Discovery.#ctor">
+            <summary>
+            Creates an instance of <see cref="T:OnvifDiscovery.Discovery"/>
+            </summary>
+        </member>
+        <member name="M:OnvifDiscovery.Discovery.#ctor(OnvifDiscovery.Interfaces.IUdpClientFactory)">
+            <summary>
+            Creates an instance of <see cref="T:OnvifDiscovery.Discovery"/>
+            </summary>
+            <param name="clientFactory">An UDP client factory instance</param>
+        </member>
+        <member name="M:OnvifDiscovery.Discovery.Discover(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Discover new onvif devices on the network
+            </summary>
+            <param name="timeout">A timeout in seconds to wait for onvif devices</param>
+            <param name="cancellationToken">A cancellation token</param>
+            <returns>a list of <see cref="T:OnvifDiscovery.Models.DiscoveryDevice"/></returns>
+        </member>
+        <member name="T:OnvifDiscovery.Exceptions.DiscoveryException">
+            <summary>
+            Exceptions related to discovery onvif compliant devices
+            </summary>
+        </member>
+        <member name="M:OnvifDiscovery.Exceptions.DiscoveryException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the System.Exception class with serialized data.
+            </summary>
+            <param name="info">The System.Runtime.Serialization.SerializationInfo that holds the serialized 
+            object data about the exception being thrown.</param>
+            <param name="context">The System.Runtime.Serialization.StreamingContext that contains contextual information
+            about the source or destination</param>
+        </member>
+        <member name="T:OnvifDiscovery.Interfaces.IDiscovery">
+            <summary>
+            Onvif Discovery, has the logic to discover onvif compliant devices on the network
+            </summary>
+        </member>
+        <member name="M:OnvifDiscovery.Interfaces.IDiscovery.Discover(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Discover new onvif devices on the network
+            </summary>
+            <param name="timeout">A timeout in seconds to wait for onvif devices</param>
+            <param name="cancellationToken">A cancellation token</param>
+            <returns>a list of <see cref="T:OnvifDiscovery.Models.DiscoveryDevice"/></returns>
+        </member>
+        <member name="T:OnvifDiscovery.Interfaces.IOnvifUdpClient">
+            <summary>
+            UDP Client interface to wrapp UdpClient and easily mock <see cref="T:System.Net.Sockets.UdpClient"/> in tests
+            </summary>
+        </member>
+        <member name="M:OnvifDiscovery.Interfaces.IOnvifUdpClient.SendProbeAsync(System.Guid,System.Net.IPEndPoint)">
+            <summary>
+            Send a probe message on the network
+            </summary>
+            <param name="messageId">The messageId, to filter the responses when received</param>
+            <param name="endPoint">The endpoint to send the probe, normally a Multicast</param>
+            <returns></returns>
+        </member>
+        <member name="M:OnvifDiscovery.Interfaces.IOnvifUdpClient.ReceiveAsync">
+            <summary>
+            Receive a <see cref="T:System.Net.Sockets.UdpReceiveResult"/>
+            </summary>
+            <returns>the udp receive result</returns>
+        </member>
+        <member name="M:OnvifDiscovery.Interfaces.IOnvifUdpClient.Close">
+            <summary>
+            Close the socket
+            </summary>
+        </member>
+        <member name="T:OnvifDiscovery.Interfaces.IUdpClientFactory">
+            <summary>
+            Factory to create <see cref="T:OnvifDiscovery.Interfaces.IOnvifUdpClient"/> clients
+            </summary>
+        </member>
+        <member name="M:OnvifDiscovery.Interfaces.IUdpClientFactory.CreateClient(System.Net.IPEndPoint)">
+            <summary>
+            Creates an <see cref="T:OnvifDiscovery.Interfaces.IOnvifUdpClient"/> based on the endpoint
+            </summary>
+            <param name="endpoint">The endpoint this client is created</param>
+            <returns>An instance of <see cref="T:OnvifDiscovery.Interfaces.IOnvifUdpClient"/></returns>
+        </member>
+        <member name="M:OnvifDiscovery.Interfaces.IUdpClientFactory.CreateClientForeachInterface">
+            <summary>
+            Creates an <see cref="T:OnvifDiscovery.Interfaces.IOnvifUdpClient"/> for each valid network interface
+            </summary>
+            <returns>A list of <see cref="T:OnvifDiscovery.Interfaces.IOnvifUdpClient"/></returns>
+        </member>
+        <member name="T:OnvifDiscovery.Models.DiscoveryDevice">
+            <summary>
+            A discovered onvif device
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.DiscoveryDevice.Types">
+            <summary>
+            The types of this onvif device. ex: NetworkVideoTransmitter
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.DiscoveryDevice.XAdresses">
+            <summary>
+            The XAddresses of this device, the url on which the device has the webservices.
+            Normally in the form of: http://{IP}:{Port}/onvif/device_service
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.DiscoveryDevice.Model">
+            <summary>
+            The onvif device model
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.DiscoveryDevice.Mfr">
+            <summary>
+            The device manufacturer
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.DiscoveryDevice.Address">
+            <summary>
+            The device IP address
+            </summary>
+        </member>
+        <member name="T:OnvifDiscovery.Models.XmlProbeReponse">
+            <summary>
+            The probe response
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.XmlProbeReponse.Header">
+            <summary>
+            The Header of the probe response
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.XmlProbeReponse.Body">
+            <summary>
+            The Body of the probe response
+            </summary>
+        </member>
+        <member name="T:OnvifDiscovery.Models.Header">
+            <summary>
+            The Header of the probe response
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.Header.MessageID">
+            <summary>
+            The message id
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.Header.RelatesTo">
+            <summary>
+            The message id that relates to
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.Header.To">
+            <summary>
+            To
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.Header.AppSequence">
+            <summary>
+            App sequence
+            </summary>
+        </member>
+        <member name="T:OnvifDiscovery.Models.Body">
+            <summary>
+            The Body of the probe response
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.Body.ProbeMatches">
+            <summary>
+            An array of probe matches
+            </summary>
+        </member>
+        <member name="T:OnvifDiscovery.Models.ProbeMatch">
+            <summary>
+            A probe match
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.ProbeMatch.EndpointReference">
+            <summary>
+            The endpoint reference
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.ProbeMatch.Types">
+            <summary>
+            The types
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.ProbeMatch.Scopes">
+            <summary>
+            The scopes
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.ProbeMatch.XAddrs">
+            <summary>
+            The XAddrs
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.ProbeMatch.MetadataVersion">
+            <summary>
+            The metadata version
+            </summary>
+        </member>
+        <member name="T:OnvifDiscovery.Models.EndpointReference">
+            <summary>
+            The endpoint reference
+            </summary>
+        </member>
+        <member name="P:OnvifDiscovery.Models.EndpointReference.Address">
+            <summary>
+            The address
+            </summary>
+        </member>
+    </members>
+</doc>

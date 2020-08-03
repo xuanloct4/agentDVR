@@ -1,0 +1,20 @@
+{
+  "short_name": "Agent Local",
+  "name": "Agent Local",
+  "start_url": "/index.html?utm_source=web_app_manifest",
+  "icons": [
+    {
+      "src": "/images/manifest-icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#363C47",
+  "theme_color": "#363C47",
+  "display": "standalone"
+}

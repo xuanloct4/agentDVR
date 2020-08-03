@@ -1,0 +1,120 @@
+﻿{
+    "header": "Edit Microphone",
+    "okResult": "UploadJSON",
+    "name": "EditMicrophone",
+    "sections": [
+        {
+            "header": "General",
+            "displayType": "Form",
+            "items": [
+                { "text": "Name", "value": "", "type": "String", "bindto": "name" },
+                { "text": "Enabled", "value": "", "type": "Boolean", "bindto": "settings.active", "live": true },
+                {
+                  "text": "Source Type",
+                  "value": 0,
+                  "type": "SelectButton",
+                  "bindto": "settings.sourceindex",
+                  "id": "ddlSourceType",
+                  "options": "SOURCETYPES",
+                  "live": true,
+                  "action": "editsource",
+                  "buttontext": "..."
+                },
+                { "text": "Plugin", "value": "", "type": "Boolean", "bindto": "settings.pluginenabled","live": true},
+                {
+                  "text": "Plugin",
+                  "value": 0,
+                  "type": "SelectButton",
+                  "bindto": "settings.plugin",
+                  "id": "ddlPlugin",
+                  "options": "PLUGINS",
+                  "live": true,
+                  "action": "editplugin",
+                  "buttontext": "...",
+                  "help": "See server settings to add plugins"
+                },
+                { "text": "Scheduling", "value": "", "type": "Boolean", "bindto": "settings.schedule" },
+                { "text": "Schedule", "value": "...", "type": "Button", "action": "showschedule" }
+            ]
+        },
+        {
+            "header": "Recording",
+            "displayType": "Form",
+            "items": [
+              {
+                "text": "Mode",
+                "value": "",
+                "type": "Select",
+                "bindto": "detector.recordmode",
+                "options": [
+                  {
+                    "text": "Sound",
+                    "value": 0
+                  },
+                  {
+                    "text": "Alert",
+                    "value": 1
+                  },
+                  {
+                    "text": "None",
+                    "value": 2
+                  }
+                ]
+              },
+                { "text": "Max Record Time", "value": 0, "type": "Int32", "min": 1, "max": 999999999999, "bindto": "recorder.maxrecordtime", "help": "Maximum time to record before starting a new file (s)" },
+                { "text": "Min Record Time", "value": 0, "type": "Int32", "min": 1, "max": 999999999999, "bindto": "recorder.minrecordtime", "help": "Minimum time to record (s)" }
+            ]
+        },
+        {
+            "header": "Detector",
+            "displayType": "Form",
+            "items": [
+                { "text": "Enabled", "value": "", "type": "Boolean", "bindto": "detector.enabled","live": true },
+                { "text": "Sensitivity", "value": [ ], "type": "Slider", "min": 1, "max": 100, "range": true, "bindto": "detector.minsensitivity,detector.maxsensitivity", "id": "arrSensitivity", "live": true  },
+                { "text": "Gain", "value": 0, "type": "Decimal", "min": 1, "max": 100, "bindto": "detector.gain", "id": "numGain", "live": true  },
+                { "text": "Level", "value": "", "type": "VolumeLevel", "help": "Adjust the sensitivity and gain to control sound detection." }
+            ]
+        },
+        {
+            "header": "Alerts",
+            "displayType": "Form",
+            "items": [
+                { "text": "Enabled", "value": "", "type": "Boolean", "bindto": "alerts.active" },
+                 {
+                    "text": "Mode",
+                    "value": "",
+                    "type": "Select",
+                    "bindto": "alerts.mode",
+                    "options": [
+                        { "text": "Detected", "value": "detected" },
+                        { "text": "Not Detected", "value": "notdetected" }
+                    ]
+                },
+                { "text": "Sound delay", "value": 0, "type": "Int32", "min": 0, "max": 9999, "bindto": "detector.soundinterval", "help": "Trigger an alert after sound detected (s)" },
+                { "text": "No sound delay", "value": 0, "type": "Int32", "min": 1, "max": 9999, "bindto": "detector.nosoundinterval", "help": "Trigger an alert after silence (s)"  },
+                { "text": "Messaging", "value": "", "type": "Boolean", "bindto": "settings.messaging" },
+                { "text": "Actions", "value": "...", "type": "Button", "action": "showactions", "help": "Specify actions to take on alert" },
+                { "text": "Intervals", "value": "", "type": "Header", "bindto": "" },
+                { "text": " Minimum Interval", "value": 0, "type": "Int32", "min": 1, "max": 99999999, "bindto": "alerts.minimuminterval", "help": "Minimum time between alerts (s)" }
+            ]
+        },{
+            "header": "Storage",
+            "displayType": "Form",
+            "items": [
+                {
+                    "text": "Drive",
+                    "value": "",
+                    "type": "Select",
+                    "bindto": "settings.directoryIndex",
+                    "options": "DIRECTORIES",
+                    "help": "Add or edit locations in settings"
+                },
+                { "text": "Folder", "value": "", "type": "String", "bindto": "directory", "help": "Relative folder path from storage location" },
+                { "text": "Management", "value": "", "type": "Boolean", "bindto": "settings.storagemanagement.enabled" },
+                { "text": "Archive", "value": "", "type": "Boolean", "bindto": "settings.storagemanagement.archive"},
+                { "text": "Max Size (Mb)", "value": "", "type": "Int32", "bindto": "settings.storagemanagement.maxsize", "help": "Maximum size of folder (MB)" },
+                { "text": "Max Age (Hours)", "value": "", "type": "Int32", "bindto": "settings.storagemanagement.maxage", "help":  "Maximum age of content (hours)" }
+            ]
+        }
+    ]
+}

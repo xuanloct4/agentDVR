@@ -1,0 +1,41 @@
+﻿<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" data-bind="text:$root.translate('Presets')"></h5>
+        </div>
+        <div class="modal-body">
+            <div class="table-responsive scrollDiv">
+                <table class="table table-bordered table-striped agentTable">
+                    <tbody>
+                        <!--ko foreach: data.items -->
+                        <tr>
+                            <td data-title="Preset" data-bind="text:text"></td>
+
+                            <td>
+                                <button type="button" data-bind="click:function(data, event) { editing.presets.click($parent, data, event); }" cmd="goPreset" class="btn btn-sm btn-success" title="Go"><span class="fa fa-arrow-right fa-lg"> </span></button>&nbsp;
+                                <!--ko if:$root.isOnvif-->
+                                <button type="button" data-bind="click:function(data, event) { editing.presets.click($parent, data, event); }" cmd="delPreset" class="btn btn-sm btn-danger" title="Delete"><span class="fa fa-times fa-lg"> </span></button>
+                                <!-- /ko -->
+                            </td>
+
+                        </tr>
+                        <!-- /ko -->
+                        <!--ko if:$root.isOnvif-->
+                        <tr>
+                            <td>
+                                <input type="text" data-bind="textInput:newPreset" class="form-control center-block" />
+                            </td>
+                            <td>
+                                <button type="button" data-bind="click:editing.presets.add" cmd="add" class="btn btn-info"><span class="fa fa-plus fa-lg"> </span></button>
+                            </td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="editing.ui.ok()" class="btn btn-primary" data-bind="text:$root.translate('OK')"></button>
+            </div>
+        </div>
+    </div>
+</div>

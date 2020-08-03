@@ -1,0 +1,10 @@
+﻿[
+    { "text": "USB/ Local Source", "value": "", "type": "Header" },
+    {
+        "text": "Device",
+        "value": "",
+        "type": "Select",
+        "bindto": "settings.sourcename",
+        "options": "DEVICELIST"
+    }
+]

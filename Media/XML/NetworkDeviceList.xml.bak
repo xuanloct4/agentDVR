@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <device ipaddress="192.168.1.2" hostname="Unknown" webserver="Apache/2.4.41: It works!" />
+  <device ipaddress="192.168.1.1" hostname="Unknown" webserver="Boa/0.94.14rc21" />
+</devices>

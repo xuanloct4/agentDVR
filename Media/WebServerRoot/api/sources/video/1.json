@@ -1,0 +1,55 @@
+﻿[
+  {
+    "text": "MJPEG Source",
+    "value": "",
+    "type": "Header"
+  },
+  {
+    "text": "Wizard",
+    "value": "...",
+    "type": "Button",
+    "action": "runwizard"
+  },
+  {
+    "text": "Username",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.login"
+  },
+  {
+    "text": "Password",
+    "value": "",
+    "type": "Password",
+    "bindto": "settings.password"
+  },
+  {
+    "text": "URL",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.videosourcestring"
+  },
+  {
+    "text": "MJPEGDecoder",
+    "value": "",
+    "type": "Select",
+    "bindto": "gpu.decoder",
+    "options": [
+      {
+        "text": "Internal",
+        "value": "internal",
+        "noTranslate": true
+      },
+      {
+        "text": "FFMPEG",
+        "value": "",
+        "noTranslate": true
+      },
+      {
+        "text": "VLC",
+        "value": "vlc",
+        "noTranslate": true
+      }
+    ],
+    "help": "MJPEGDecoder Help"
+  }
+]

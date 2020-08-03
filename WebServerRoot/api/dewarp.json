@@ -1,0 +1,51 @@
+﻿{
+    "header": "Dewarp",
+    "okResult": "UploadJSON",
+    "name": "Dewarp",
+    "sections": [
+        {
+          "header": "Settings",
+          "displayType": "Form",
+          "items": [
+            {
+              "text": "Active",
+              "value": "",
+              "type": "Boolean",
+              "bindto": "dewarp.enabled",
+              "id": "chkActive",
+              "live": true
+            },
+            {
+              "text": "FocalLength",
+              "value": "",
+              "type": "Slider",
+              "range": false,
+              "min": 1,
+              "max": 2000,
+              "bindto": "dewarp.focallength",
+              "live": true
+            },
+            {
+              "text": "Limit",
+              "value": "",
+              "type": "Slider",
+              "range": false,
+              "min": 0,
+              "max": 3000,
+              "bindto": "dewarp.limit",
+              "live": true
+            },
+            {
+              "text": "Scale",
+              "value": "",
+              "type": "Slider",
+              "range": false,
+              "min": 1,
+              "max": 20,
+              "bindto": "dewarp.scale",
+              "live": true
+            }
+          ]
+        }
+    ]
+}

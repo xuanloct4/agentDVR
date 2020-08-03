@@ -1,0 +1,25 @@
+﻿{
+  "header": "Storage",
+  "okResult": "UploadJSON",
+  "name": "EditStorage",
+  "ident": "new",
+  "validate": true,
+  "sections": [
+    {
+      "header": "Directory",
+      "displayType": "Form",
+      "items": [
+          { "text": "StorageDirectory", "value": "", "type": "String", "bindto": "Entry", "help": ""  },
+          { "text": "Default", "value": false, "type": "Boolean", "bindto": "Default" },
+          { "text": "Archive Location", "value": "", "type": "String", "bindto": "ArchiveDirectoryNew", "help": "Directory to archive files to" },
+          { "text": "Management", "value": false, "type": "Boolean", "bindto": "EnableManagement" },
+          { "text": "Max Size", "value": 20000, "type": "Decimal", "min": 1, "max": 9999999999999, "bindto": "MaxSize", "help": "Maximum size of folder (MB)" },
+          { "text": "Max Age", "value": 168, "type": "Decimal", "min": 1, "max": 9999999999, "bindto": "MaxAge", "help":  "Maximum age of content (hours)" },
+          { "text": "Network Storage", "type": "Header"},
+          { "text": "Computer Name", "value": "", "type": "String", "bindto": "RemoteComputerName", "help": "ComputerNameHelp"  },
+          { "text": "Username", "value": "", "type": "String", "bindto": "Username" },
+          { "text": "Password", "value": "", "type": "Password", "bindto": "Password" }          
+      ]
+    }
+  ]
+}

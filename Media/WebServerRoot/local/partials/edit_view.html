@@ -1,0 +1,48 @@
+﻿<div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" data-bind="text:$root.translate('EditView')"></h5>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label data-bind="text:$root.translate('Name')"></label>
+                <input type="text" class="form-control" data-bind="textInput:viewName" title="View Name" />
+            </div>
+            <div class="form-group">
+                <label data-bind="text:$root.translate('Mode')"></label>
+                <select class="form-control" data-bind="value:mode">
+                    <option value="grid" data-bind="text:$root.translate('g.Grid')"></option>
+                    <option value="column" data-bind="text:$root.translate('g.Column')"></option>
+                    <option value="2column" data-bind="text:$root.translate('g.TwoColumns')"></option>
+                    <option value="active" data-bind="text:$root.translate('g.Active')"></option>
+                    <option value="alerted" data-bind="text:$root.translate('g.Alerted')"></option>
+                    <option value="detected" data-bind="text:$root.translate('g.Detected')"></option>
+                    <option value="rotate" data-bind="text:$root.translate('g.Interval')"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label data-bind="text:$root.translate('IncludedDevices')"></label>
+                <div data-bind="foreach: objects" class="scrollDiv">
+                    <div data-bind="click:$parent.toggle" style="cursor: pointer; padding: 5px">
+                        <!-- ko ifnot: inView -->
+                        <i class="fa fa-square-o"></i>
+                        <!-- /ko -->
+                        <!-- ko if: inView -->
+                        <i class="fa fa-check-square-o"></i>
+                        <!-- /ko -->
+                        <span data-bind="text:name"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- ko if: $root.canEdit -->
+            <div class="form-group">
+                <button type="button" class="btn btn-primary btn-block btn-sm" onclick="editing.showAddDeviceMenu()" data-bind="text:$root.translate('AddNewDevice')"></button>
+            </div>
+            <!-- /ko -->
+            <div class="modal-footer">
+                <button type="button" onclick="editing.ui.ok()" class="btn btn-primary" data-bind="text:$root.translate('OK')"></button><button type="button" onclick="editing.ui.close()" class="btn btn-warning" data-bind="text:$root.translate('Cancel')"></button>
+            </div>
+
+        </div>
+    </div>
+</div>

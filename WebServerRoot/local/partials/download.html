@@ -1,0 +1,30 @@
+﻿<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" data-bind="text:$root.translate('Download')"></h5>
+        </div>
+        <div class="modal-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped agentTable">
+                    <thead>
+                        <tr>
+                            <th data-bind="text:$root.translate('File')"></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--ko foreach: data.items -->
+                        <tr>
+                            <td><span  data-bind="text:device"></span><br/><span data-bind="text:summary"></span></td>
+                            <td><button role="button" class="btn btn-primary" cmd="download" data-bind="click:function(data, event) { editing.ui.itemclick($parent, data, event); }"><span class="fa fa-sm fa-download"> </span></button></td>
+                        </tr>
+                        <!-- /ko -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="editing.ui.ok()" class="btn btn-primary" data-bind="text:$root.translate('OK')"></button>
+            </div>
+        </div>
+    </div>
+</div>

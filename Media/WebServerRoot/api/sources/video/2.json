@@ -1,0 +1,57 @@
+﻿[
+  {
+    "text": "Network Source",
+    "value": "",
+    "type": "Header"
+  },
+  {
+    "text": "Wizard",
+    "value": "...",
+    "type": "Button",
+    "action": "runwizard"
+  },
+
+  {
+    "text": "Username",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.login"
+  },
+  {
+    "text": "Password",
+    "value": "",
+    "type": "Password",
+    "bindto": "settings.password"
+  },
+  {
+    "text": "URL",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.videosourcestring",
+    "id": "txtVideoURL"
+  },
+  {
+    "text": "Decoder",
+    "value": "",
+    "type": "Select",
+    "bindto": "gpu.decoder",
+    "options": [
+      {
+        "text": "FFMPEG",
+        "value": "",
+        "noTranslate": true
+      },
+      {
+        "text": "VLC",
+        "value": "vlc",
+        "noTranslate": true
+      },
+      {
+        "text": "GPU",
+        "value": "auto",
+        "noTranslate": true
+      }
+    ],
+    "help": ""
+  }
+]
