@@ -1,0 +1,12 @@
+﻿[
+    { "text": "VLC", "value": "", "type": "Header", "noTranslate": true },
+    { "text": "Wizard", "value": "...", "type": "Button", "action": "runwizard" },
+    { "text": "URL", "value": "", "type": "String", "bindto": "settings.videosourcestring", "id": "txtVideoURL" },
+    {
+      "text": "vlcoptions",
+      "value": "",
+      "type": "TextArea",
+      "bindto": "settings.vlcoptions",
+      "help": ""
+    }
+]

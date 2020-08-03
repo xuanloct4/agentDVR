@@ -1,0 +1,64 @@
+﻿[
+  {
+    "text": "DVR",
+    "value": "",
+    "type": "Header",
+    "notranslate": true
+  },
+  {
+    "text": "Wizard",
+    "value": "...",
+    "type": "Button",
+    "action": "runwizard"
+  },
+  {
+    "text": "Model",
+    "value": "",
+    "type": "Select",
+    "bindto": "settings.dvrmodel",
+    "options": "DVRMODELS"
+  },
+  {
+    "text": "Host",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.videosourcestring",
+    "help": "eg."
+  },
+  {
+    "text": "Username",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.login"
+  },
+  {
+    "text": "Password",
+    "value": "",
+    "type": "Password",
+    "bindto": "settings.password"
+  },
+  {
+    "text": "Channel",
+    "value": "",
+    "type": "Int32",
+    "bindto": "settings.dvrchannel"
+  },
+  {
+    "text": "Decoder",
+    "value": "",
+    "type": "Select",
+    "bindto": "gpu.decoder",
+    "options": [
+      {
+        "text": "FFMPEG",
+        "value": "",
+        "noTranslate": true
+      },
+      {
+        "text": "GPU",
+        "value": "auto",
+        "noTranslate": true
+      }
+    ]
+  }
+]

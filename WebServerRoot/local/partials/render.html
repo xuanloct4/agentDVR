@@ -1,0 +1,276 @@
+﻿<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <!--ko ifnot: data.tabs-->
+        <div class="modal-header">
+            <h5 class="modal-title" data-bind="text:data.header"></h5>
+            <!-- ko if: data.sections().length>1 -->
+            <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle btn-info" data-bind="text: currentSection" data-toggle="dropdown"></button>
+                <div class="dropdown-menu" data-bind="foreach: data.sections">
+                    <button class="dropdown-item" data-bind="click:editing.ui.setTab,text:header"></button>
+                </div>
+            </div>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+        <!--ko if: data.tabs-->
+        <ul class="nav nav-tabs" data-bind="foreach: data.sections">
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-bind="click:editing.ui.setTab,text:header, css: { active: $data.tabActive() }"></a>
+            </li>
+        </ul>
+        <!-- /ko -->
+        <div class="modal-body">
+            <div>
+                <div data-bind="foreach: data.sections">
+                    <!-- ko if: $data.displayType()=="Form"-->
+                    <div data-bind="visible: $data.tabActive || false">
+                        <!-- ko if: $data.help -->
+                        <div class="form-group row">
+                            <div class="col-12">
+                                <div data-bind="text:help" class="small"></div>
+                            </div>
+                        </div>
+                        <!-- /ko -->
+                        <div data-bind="foreach: items">
+                            <!-- ko if: editing.helpers.filterPlatform($data)-->
+                            <div class="form-group row">
+                                <!-- ko if: type()=="Header"-->
+                                <div class="col-xs-12">
+                                    <h3>
+                                        <span data-bind="text:text"></span>
+                                        <!-- ko if: $data.live -->
+                                        <span class="small">*</span>
+                                        <!-- /ko -->
+                                    </h3>
+                                </div>
+                                <!-- ko if: $data.help  -->
+                                <label class="col-12 col-form-label small" data-bind="text:help"></label>
+                                <!-- /ko -->
+                                <!-- /ko -->
+                                <!-- ko if: type()!="Header"-->
+                                <!-- ko if: editing.helpers.bigType(type()) -->
+                                <div class="col-12">
+                                    <!-- ko if: $data.text-->
+                                    <h4 data-bind="text:text"></h4>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="MultiSelect"-->
+                                    <select class="form-control" data-bind="options: options, optionsText:'value', optionsValue: 'value', selectedOptions: value, event:{change:editing.ui.change}" multiple="multiple">
+                                        <!-- ko if: options.length==0-->
+                                        <option disabled="disabled" selected="selected" data-bind="text:$root.translate('None')"></option>
+                                        <!-- /ko -->
+                                    </select>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="PlaceHolder"-->
+                                    <div data-bind="attr:{id:$data.id}"></div>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="ZoneManager"-->
+                                    <span style="cursor: pointer;position:absolute;right:10px;top:-5px">
+                                        <button type="button" onclick="editing.ui.commands.clearZones(this)" data-bind="attr:{binding:$data.bindto}" title="Reset" class="btn btn-primary btn-sm"><span class="fa fa-recycle fa-lg" style="cursor: pointer;"> </span></button>
+                                        <button type="button" onclick="editing.ui.commands.setNibSize()" title="Change nib size" class="btn btn-primary btn-sm"><span class="nibcontrol fa fa-square fa-sm" style="cursor: pointer;"> </span></button>
+                                    </span>
+                                    <canvas data-bind="canvasManager: value, attr: {mode:'motionzones',width: $data.width || 320, height: $data.height || 240, data:value, bindto:$data.bindto, autosize: true}" class="renderEngine center-block" style="border: solid 1px #ccc;"></canvas>
+
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="ScreenAreaManager"-->
+                                    <canvas data-bind="canvasManager: value, attr: {mode: 'area',width: $data.width || 320, height: $data.height || 240, data: value, autosize: true}" class="renderEngine center-block"></canvas>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="DesktopAreaManager"-->
+                                    <canvas data-bind="canvasManager: value, attr: {mode: 'desktop',width: $data.width || 320, height: $data.height || 240, data: value, autosize: true, max:1}" class="renderEngine center-block"></canvas>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="LineManager"-->
+                                    <span style="cursor: pointer;position:absolute;right:10px;top:-5px">
+                                        <button type="button" onclick="editing.ui.commands.toggleDetectorMode()" title="Toggle" class="btn btn-primary btn-sm"><span class="detectorcontrol fa fa-toggle-off fa-lg" style="cursor: pointer;"> </span></button>
+                                    </span>
+                                    <canvas data-bind="canvasManager: value, attr: {mode: 'line',width: $data.width || 320, height: $data.height || 240, data:value, max:$data.max, autosize: true}" class="renderEngine center-block"></canvas>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="DetectorViewManager"-->
+                                    <span style="cursor: pointer;position:absolute;right:10px;top:-5px">
+                                        <button type="button" onclick="editing.ui.commands.toggleDetectorMode()" title="Toggle between live view and detector view" class="btn btn-primary btn-sm"><span class="detectorcontrol fa fa-toggle-off fa-lg" style="cursor: pointer;"> </span></button>
+                                    </span>
+                                    <canvas data-bind="canvasManager: value, attr: {mode: 'detector', extra: $data.extra, width: $data.width || 320, height: $data.height || 240, data: value, overlay: overlay, autosize:true}" class="renderEngine center-block"></canvas>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="SpectrumAnalyser"-->
+                                    <canvas data-bind="canvasManager: value, attr: {mode: 'spectrum',width: $data.width || 320, height: $data.height || 240, autosize:true}" class="renderEngine center-block"></canvas>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="PiPManager"-->
+                                    <select class="form-control" id="PiPDeviceList" data-bind="options: $root.deviceList(2), optionsText: 'name', optionsValue: 'oid'"></select>
+                                    <canvas data-bind="canvasManager: value, attr: {mode: 'pip',width: $data.width || 320, height: $data.height || 240, data: value, autosize:true, max: 10}" class="renderEngine center-block" style="border: solid 1px #ccc; margin-top: 10px"></canvas>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="VolumeLevel"-->
+                                    <canvas data-bind="attr: {width: $data.width || 320, height: $data.height || 40, data: value}" class="volumeLevel renderEngine center-block"></canvas>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="TextArea"-->
+                                    <textarea class="form-control center-block" data-bind="textInput:value"></textarea>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="HTML"-->
+                                    <div data-bind="html:value"></div>
+                                    <!-- /ko -->
+                                    <!-- ko if: $data.help  -->
+                                    <div class="small" style="text-align:center" data-bind="text:help"></div>
+                                    <!-- /ko -->
+                                </div>
+                                <!-- /ko -->
+                                <!-- ko if: !editing.helpers.bigType(type()) -->
+                                <label class="col-3 col-form-label">
+                                    <span data-bind="text:$data.text"></span>
+                                    <!-- ko if: $data.live -->
+                                    <span class="small">*</span>
+                                    <!-- /ko -->
+                                </label>
+                                <div class="col-9">
+                                    <!-- ko if: type()=="DateTime"-->
+                                    <div class="input-group date" data-target-input="nearest" data-bind="attr:{id:$data.id}">
+                                        <input type="text" class="form-control datetimepicker-input" data-bind="DateTime: value, attr:{'data-target':$root.idise($data.id)}" />
+                                        <div class="input-group-append" data-toggle="datetimepicker" data-bind="attr:{'data-target':$root.idise($data.id)}">
+                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Slider"-->
+                                    <div data-bind="slider: value, attr: {min:$data.min||0,max:$data.max||100,range:$data.range||false,value:value,affects:$data.id||''}, event:{change:editing.ui.change}" step="1"></div>
+                                    <div class="small" data-bind="text:value"></div>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Info"-->
+                                    <div data-bind="html:value"></div>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="TypeAheadServer"-->
+                                    <input type="text" autocorrect="off" data-provide="typeahead" autocapitalize="off" autocomplete="off" class="form-control typeahead-ctrl" data-bind="attr:{id:$data.id}, textInput:value, event:{change:editing.ui.change}" />
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="String"-->
+                                    <input type="text" autocorrect="off" autocapitalize="off" autocomplete="new-password" class="form-control" data-bind="attr:{id:$data.id}, textInput:value, event:{change:editing.ui.change}" />
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Typeahead"-->
+                                    <input type="text" autocorrect="off" autocomplete="off" autocapitalize="off" class="form-control typeahead-ctrl-basic" data-bind="attr:{title:$data.title,id:id,values:$data.values}, textInput:value, event:{change:editing.ui.change}" />
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="HTMLControl"-->
+                                    <div data-bind="html:$data.html, attr:{id:$data.divid,class:$data.cssclass}"></div>
+                                    <input type="text" autocorrect="off" autocomplete="new-password" autocapitalize="off" class="form-control" data-bind="attr:{title:$data.title,id:id}, textInput:value, event:{change:editing.ui.change}" />
+                                    <!-- /ko -->
+                                    <!-- ko if: ["Int32","Decimal"].indexOf(type())>-1 -->
+                                    <input type="number" data-bind="attr:{min:$data.min||0,max:$data.max||100}, textInput: value, event:{change:editing.ui.change}" class="form-control" />
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Boolean"-->
+                                    <input type="checkbox" class="customSwitch" data-bind="toggle: value, checked:value, attr:{id:$data.id}, event:{change:editing.ui.change}" data-size="sm">
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Password"-->
+                                    <input type="password" class="form-control" style="-webkit-text-security: disc" data-bind="textInput:value, event:{change:editing.ui.change}" autocomplete="new-password" />
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Button"-->
+                                    <button type="button" class="btn btn-primary" data-bind="value: value,text:value, attr:{id:$data.id}, click:editing.ui.click"></button>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="ButtonIcon"-->
+                                    <button type="button" class="btn btn-default" data-bind="html:value, click:editing.ui.click"></button>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="ButtonHighlight"-->
+                                    <button type="button" class="btn btn-success btn-block btn-sm" data-bind="value: value,html:value, attr:{id:$data.id}, click:editing.ui.click"></button>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Link"-->
+                                    <a role="button" class="btn btn-secondary" data-bind="attr:{href:url},text:value" target="_blank"></a>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Select"-->
+                                    <select class="form-control" data-bind="options: options, optionsText: 'text', optionsValue: 'value', attr:{id:$data.id}, value: value, event:{change:editing.ui.change}">
+                                        <!-- ko if: options.length==0-->
+                                        <option disabled="disabled" selected="selected" data-bind="text:$root.translate('None')"></option>
+                                        <!-- /ko -->
+                                    </select>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="SelectButton"-->
+                                    <div class="input-group">
+                                        <select class="form-control" data-bind="options: options, optionsText: 'text', optionsValue: 'value', value: value, event:{change:editing.ui.change}">
+                                            <!-- ko if: options.length==0-->
+                                            <option disabled="disabled" selected="selected" data-bind="text:$root.translate('None')"></option>
+                                            <!-- /ko -->
+                                        </select>
+                                        <span class="input-group-append">
+                                            <button type="button" class="btn btn-info" data-bind="attr:{id:($data.id||'')+'_button'}, click:editing.ui.click,text:buttontext"></button>
+                                        </span>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Color"-->
+                                    <input type="color" class="form-control" data-bind="value: value" />
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="Time"-->
+                                    <input type="time" class="form-control" data-bind="value: value, attr:{step:$data.step || 1}" />
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="CheckedList"-->
+                                    <div class="btn-group center-block" data-bind="foreach: options">
+                                        <button type="button" class="btn btn-sm" data-bind="css: { 'btn-success':value,  'btn-secondary':!value},value:value,text:text, event:{click:editing.ui.click}" cmd="bool" btn-checkbox></button>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: type()=="CheckBoxList"-->
+                                    <div class="btn-group-vertical w-100" data-bind="foreach: options">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" data-bind="checked:value, attr:{id:$data.id}, event:{change:editing.ui.change}">
+                                            <label class="custom-control-label" data-bind="attr:{for:$data.id}, text:$data.text"></label>
+                                        </div>                                        
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: $data.help  -->
+                                    <div class="small" data-bind="text:help"></div>
+                                    <!-- /ko -->
+                                </div>
+                                <!-- /ko -->
+                                <!-- /ko -->
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: $data.displayType()=="TableEdit"-->
+                    <!-- ko if: $data.help -->
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <div data-bind="text:help" class="small"></div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                    <div data-bind="visible: $data.tabActive || false">
+                        <table class="table table-bordered table-striped agentTable">
+                            <tbody>
+                                <!--ko foreach: items -->
+                                <tr>
+                                    <th data-bind="html:text" class="wordbreak"></th>
+                                    <td>
+                                        <button type="button" data-bind="click:function(data, event) { editing.ui.itemclick($parent, data, event); }" cmd="edit" class="btn btn-sm btn-info" title="Edit"><span class="fa fa-edit fa-lg"> </span></button>&nbsp;
+                                        <!--ko if: editing.helpers.canDelete($parent)-->
+                                        <button type="button" data-bind="click:function(data, event) { editing.ui.itemclick($parent, data, event); }" cmd="del" class="btn btn-sm btn-danger" title="Delete"><span class="fa fa-times fa-lg"> </span></button>
+                                        <!-- /ko -->
+
+                                    </td>
+                                </tr>
+                                <!-- /ko -->
+                                <tr>
+                                    <td colspan="2">
+                                        <!--ko if: editing.helpers.canCopy($data)-->
+                                        <input type="button" data-bind="value:$root.translate('CopyFrom'),click:editing.ui.click" cmd="copy" class="btn btn-primary" />
+                                        <!-- /ko -->
+                                        <!--ko if: editing.helpers.canAdd($data)-->
+                                        <input type="button" data-bind="value:$root.translate('Add'),click:editing.ui.click" cmd="add" class="btn btn-info" />
+                                        <!-- /ko -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <!--ko if: $data.extraFooter-->
+            <div data-bind="html:$data.extraFooter" class="mr-auto"></div>
+            <!-- /ko -->
+            <!--ko if: editing.helpers.OKOnly($data)-->
+            <button type="button" onclick="editing.ui.ok()" class="btn btn-primary" data-bind="text:$root.translate('OK')"></button>
+            <!-- /ko -->
+            <!--ko if: editing.helpers.CancelOnly($data)-->
+            <button type="button" onclick="editing.ui.close()" class="btn btn-warning" data-bind="text:$root.translate('Cancel')"></button>
+            <!-- /ko -->
+            <!--ko if: editing.helpers.FullOptions($data)-->
+            <button type="button" onclick="editing.ui.ok()" class="btn btn-primary" data-bind="text:$root.translate('OK')"></button>
+            <button type="button" onclick="editing.ui.close()" class="btn btn-warning" data-bind="text:$root.translate('Cancel')"></button>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>

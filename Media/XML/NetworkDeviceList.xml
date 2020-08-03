@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <device ipaddress="192.168.0.246" hostname="Unknown" webserver="cisco-IOS" />
+  <device ipaddress="192.168.0.182" hostname="Unknown" webserver="web" />
+  <device ipaddress="192.168.0.243" hostname="Unknown" webserver="cisco-IOS" />
+  <device ipaddress="192.168.0.244" hostname="Unknown" webserver="cisco-IOS" />
+  <device ipaddress="192.168.0.169" hostname="Unknown" webserver="Apache/2.4.41: It works!" />
+  <device ipaddress="192.168.0.28" hostname="Unknown" webserver="Jetty(9.4.17.v20190418): Error 404 Not Found" />
+  <device ipaddress="192.168.0.245" hostname="Unknown" webserver="cisco-IOS" />
+  <device ipaddress="192.168.0.148" hostname="Unknown" webserver="Apache/2.4.37: It works!" />
+</devices>

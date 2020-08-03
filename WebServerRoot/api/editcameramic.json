@@ -1,0 +1,21 @@
+﻿{
+    "header": "Microphone",
+    "okResult": "UploadJSON",
+    "name": "EditCameraMic",
+    "sections": [
+        {
+            "header": "Microphone",
+            "displayType": "Form",
+            "items": [
+               {
+                    "text": "Microphone",
+                    "value": "",
+                    "type": "Select",
+                    "bindto": "settings.micpair",
+                    "options": "AUDIOSOURCES",
+                    "help": "Add a microphone to the server to add to this list"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,86 @@
+﻿{
+  "header": "Detector",
+  "okResult": "UploadJSON",
+  "name": "EditDetector",
+  "sections": [
+    {
+      "header": "Detector",
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "DetectorView",
+          "value": "",
+          "type": "DetectorViewManager",
+          "help": "Detector View",
+          "overlay": false
+        },
+        {
+          "text": "detectorframesize",
+          "value": "0",
+          "type": "Select",
+          "bindto": "detector.framesizeindex",
+          "options": [
+            {
+              "text": "Small",
+              "value": 0
+            },
+            {
+              "text": "Medium",
+              "value": 1
+            },
+            {
+              "text": "Large",
+              "value": 2
+            }
+          ],
+          "help": "Size of the motion frame",
+          "live": true
+        },
+        {
+          "text": "Motion History",
+          "value": 0,
+          "type": "Slider",
+          "range": false,
+          "min": 1,
+          "max": 50,
+          "bindto": "detector.motionhistory",
+          "help": "Number of frames to use for analysis",
+          "live": true
+        },
+        {
+          "text": "Process Interval",
+          "value": 0,
+          "type": "Int32",
+          "min": 0,
+          "max": 10000,
+          "bindto": "detector.processinterval",
+          "help": "ms delay between processing frames",
+          "live": true
+        },
+        {
+          "text": "Sensitivity",
+          "value": [],
+          "type": "Slider",
+          "min": 1,
+          "max": 100,
+          "range": true,
+          "bindto": "detector.minsensitivity,detector.maxsensitivity",
+          "id": "arrSensitivity",
+          "help": "This controls how much motion triggers the motion detector.",
+          "live": true
+        },
+        {
+          "text": "Gain",
+          "value": 0,
+          "type": "Decimal",
+          "min": 1,
+          "max": 100,
+          "bindto": "detector.gain",
+          "help": "Multiplier for the motion detector.",
+          "id": "numGain",
+          "live": true
+        }
+      ]
+    }
+  ]
+  }

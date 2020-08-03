@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Agent - Local</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Agent - Video Surveillance Software" />
+    <meta name="keywords" content="iSpy,agent,video,surveillance" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-itunes-app" content="app-id=1356846778" />
+    <meta name="theme-color" content="#363C47" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/images/icon_196.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/icon_72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/icon_114.png">
+    <link rel="icon" sizes="196x196" href="/images/icon_196.png">
+
+    <link rel="manifest" href="manifest.json">
+    <link href="./css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="./css/style.css?v=4" rel="stylesheet" />
+    <link href="./css/fontawesome/font-awesome.min.css" rel="stylesheet" />
+    <link href="./css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./css/bootstrap4-toggle.min.css" rel="stylesheet" />
+    <link href="./css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" id="theme" type="text/css" href="" />
+    <script>
+        window.isLocal = true;
+        window.localConfig = { localConfig };
+        window.boot = { version: Math.random() };
+    </script>
+    <script src="./script/jquery.js"></script>
+    <script src="./script/knockout-3.5.0.js"></script>
+    <script src="./script/knockout.mapping.js"></script>
+    <script src="./script/rtcadapter.js"></script>
+    <script src="./script/monitor.min.js?v=10"></script>
+    <script src="./script/jquery-ui.min.js"></script>
+    <script src="./script/jquery.ui.touch-punch.min.js"></script>
+    <script src="./script/typeahead3.js"></script>
+    <script src="./script/bootstrap.bundle.min.js"></script>
+    <script src="./script/bootstrap4-toggle.min.js"></script>
+    <script src="./script/moment-with-locales.min.js"></script>
+    <script src="./script/tempusdominus-bootstrap-4.min.js"></script>
+
+    <style type="text/css">
+        #preloader {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            right: 50%;
+            margin-top: 0px;
+            margin-left: -71px;
+            width: 142px;
+            height: 142px
+        }
+
+            #preloader .spinner {
+                -moz-animation: rotate 10s infinite linear;
+                -webkit-animation: rotate 10s infinite linear;
+                animation: rotate 10s infinite linear;
+                position: relative;
+                display: block;
+                margin: auto;
+                width: 142px;
+                height: 142px
+            }
+
+                #preloader .spinner i {
+                    -moz-animation: rotate 3s infinite cubic-bezier(.09,.6,.8,.03);
+                    -webkit-animation: rotate 3s infinite cubic-bezier(.09,.6,.8,.03);
+                    animation: rotate 3s infinite cubic-bezier(.09,.6,.8,.03);
+                    -moz-transform-origin: 50% 100% 0;
+                    -webkit-transform-origin: 50% 100% 0;
+                    transform-origin: 50% 100% 0;
+                    position: absolute;
+                    display: inline-block;
+                    top: 50%;
+                    left: 50%;
+                    border: solid 6px transparent;
+                    border-bottom: none
+                }
+
+                    #preloader .spinner i:nth-child(1) {
+                        -moz-animation-timing-function: cubic-bezier(.09,.3,.12,.03);
+                        -webkit-animation-timing-function: cubic-bezier(.09,.3,.12,.03);
+                        animation-timing-function: cubic-bezier(.09,.3,.12,.03);
+                        width: 44px;
+                        height: 22px;
+                        margin-top: -22px;
+                        margin-left: -22px;
+                        border-color: #2172b8;
+                        border-top-left-radius: 36px;
+                        border-top-right-radius: 36px
+                    }
+
+                    #preloader .spinner i:nth-child(2) {
+                        -moz-animation-timing-function: cubic-bezier(.09,.6,.24,.03);
+                        -webkit-animation-timing-function: cubic-bezier(.09,.6,.24,.03);
+                        animation-timing-function: cubic-bezier(.09,.6,.24,.03);
+                        width: 58px;
+                        height: 29px;
+                        margin-top: -29px;
+                        margin-left: -29px;
+                        border-color: #18a39b;
+                        border-top-left-radius: 42px;
+                        border-top-right-radius: 42px
+                    }
+
+                    #preloader .spinner i:nth-child(3) {
+                        -moz-animation-timing-function: cubic-bezier(.09,.9,.36,.03);
+                        -webkit-animation-timing-function: cubic-bezier(.09,.9,.36,.03);
+                        animation-timing-function: cubic-bezier(.09,.9,.36,.03);
+                        width: 72px;
+                        height: 36px;
+                        margin-top: -36px;
+                        margin-left: -36px;
+                        border-color: #82c545;
+                        border-top-left-radius: 48px;
+                        border-top-right-radius: 48px
+                    }
+
+                    #preloader .spinner i:nth-child(4) {
+                        -moz-animation-timing-function: cubic-bezier(.09,1.2,.48,.03);
+                        -webkit-animation-timing-function: cubic-bezier(.09,1.2,.48,.03);
+                        animation-timing-function: cubic-bezier(.09,1.2,.48,.03);
+                        width: 86px;
+                        height: 43px;
+                        margin-top: -43px;
+                        margin-left: -43px;
+                        border-color: #f8b739;
+                        border-top-left-radius: 54px;
+                        border-top-right-radius: 54px
+                    }
+
+                    #preloader .spinner i:nth-child(5) {
+                        -moz-animation-timing-function: cubic-bezier(.09,1.5,.6,.03);
+                        -webkit-animation-timing-function: cubic-bezier(.09,1.5,.6,.03);
+                        animation-timing-function: cubic-bezier(.09,1.5,.6,.03);
+                        width: 100px;
+                        height: 50px;
+                        margin-top: -50px;
+                        margin-left: -50px;
+                        border-color: #f06045;
+                        border-top-left-radius: 60px;
+                        border-top-right-radius: 60px
+                    }
+
+                    #preloader .spinner i:nth-child(6) {
+                        -moz-animation-timing-function: cubic-bezier(.09,1.8,.72,.03);
+                        -webkit-animation-timing-function: cubic-bezier(.09,1.8,.72,.03);
+                        animation-timing-function: cubic-bezier(.09,1.8,.72,.03);
+                        width: 114px;
+                        height: 57px;
+                        margin-top: -57px;
+                        margin-left: -57px;
+                        border-color: #ed2861;
+                        border-top-left-radius: 66px;
+                        border-top-right-radius: 66px
+                    }
+
+                    #preloader.spinner i:nth-child(7) {
+                        -moz-animation-timing-function: cubic-bezier(.09,2.1,.84,.03);
+                        -webkit-animation-timing-function: cubic-bezier(.09,2.1,.84,.03);
+                        animation-timing-function: cubic-bezier(.09,2.1,.84,.03);
+                        width: 128px;
+                        height: 64px;
+                        margin-top: -64px;
+                        margin-left: -64px;
+                        border-color: #c12680;
+                        border-top-left-radius: 72px;
+                        border-top-right-radius: 72px
+                    }
+
+                    #preloader .spinner i:nth-child(8) {
+                        -moz-animation-timing-function: cubic-bezier(.09,2.4,.96,.03);
+                        -webkit-animation-timing-function: cubic-bezier(.09,2.4,.96,.03);
+                        animation-timing-function: cubic-bezier(.09,2.4,.96,.03);
+                        width: 142px;
+                        height: 71px;
+                        margin-top: -71px;
+                        margin-left: -71px;
+                        border-color: #5d3191;
+                        border-top-left-radius: 78px;
+                        border-top-right-radius: 78px
+                    }
+
+        @-moz-keyframes rotate {
+            to {
+                -moz-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        @-webkit-keyframes rotate {
+            to {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes rotate {
+            to {
+                -moz-transform: rotate(360deg);
+                -ms-transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="frmMain" method="post">
+        <div class="wrapper">
+            <div id="preloader"><div class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <nav id="sidebar" class="pre-scrollable"></nav>
+            <div id="content">
+                <canvas id="mainApp" style="font-family:fontawesome" tabindex="1"></canvas>
+            </div>
+            <div id="snackbar"></div>
+            <div id="editor" class="modal hide fade" data-backdrop="false" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true"></div>
+        </div>
+    </form>
+    <noscript>
+        <style>
+            #preloader {
+                display: none
+            }
+
+            .center {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        </style>
+        <div class="center alert alert-primary" role="alert">The Agent web interfaces requires Javascript to be enabled. Please enable Javascript on your browser and reload the page.</div>
+    </noscript>
+    <script>
+       $(document).ready(function () {
+            if (typeof window.TextDecoder === "undefined") {
+                $("#preloader").hide();
+                $("#snackbar").css({ "background-color": "#DDD", "color": "#222", "border": "solid 1px " + "#000" });
+                $("#snackbar").html("Agent uses features that aren't available in this web browser.<br/>Please try a different web browser (<a href=\"https://www.google.com/chrome/\">chrome</a> is recommended.)");
+                $("#snackbar").addClass("show");
+            }
+            if (window.isLocal) {
+                agent.init();
+            }
+        });
+    </script>
+</body>
+</html>

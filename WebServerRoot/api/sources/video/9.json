@@ -1,0 +1,96 @@
+﻿[
+  {
+    "text": "ONVIF",
+    "value": "",
+    "type": "Header"
+  },
+  {
+    "text": "Username",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.login",
+    "id": "txtOnvifUsername"
+  },
+  {
+    "text": "Password",
+    "value": "",
+    "type": "Password",
+    "bindto": "settings.password",
+    "id": "txtOnvifPassword"
+  },
+  {
+    "text": "RTSP Port Override",
+    "value": "",
+    "type": "Int32",
+    "min": 0,
+    "max": 65535,
+    "bindto": "settings.onvif.rtspport",
+    "id": "txtOnvifRTSPPort",
+    "help": "Override the RTSP port (for external access, 0 = auto)"
+  },
+  {
+    "text": "Service URL",
+    "value": "",
+    "type": "Typeahead",
+    "bindto": "settings.onvifident",
+    "help": "eg: http://192.168.1.233:8001/onvif/device_service",
+    "id": "txtOnvifURL",
+    "values": "DEVICES",
+    "title": "Devices"
+  },
+  {
+    "text": "Timeout",
+    "value": "",
+    "type": "Int32",
+    "min": 2,
+    "max": 60,
+    "bindto": "settings.onvif.timeout",
+    "id": "txtOnvifTimeout"
+  },
+  {
+    "text": "Discover",
+    "value": "Get Video URLs",
+    "type": "Button",
+    "action": "onvifdiscover",
+    "id": "btnOnvifDiscover"
+  },
+  {
+    "text": "Video URL",
+    "value": "",
+    "type": "Select",
+    "bindto": "settings.videosourcestring",
+    "id": "ddlOnvifURLs",
+    "options": "ONVIFURL"
+  },
+  {
+    "text": "Video Override",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.videosourcestringalt",
+    "help": "Video override help"
+  },
+  {
+    "text": "Decoder",
+    "value": "",
+    "type": "Select",
+    "bindto": "gpu.decoder",
+    "options": [
+      {
+        "text": "FFMPEG",
+        "value": "ffmpeg",
+        "noTranslate": true
+      },
+      {
+        "text": "VLC",
+        "value": "vlc",
+        "noTranslate": true
+      },
+      {
+        "text": "GPU",
+        "value": "auto",
+        "noTranslate": true
+      }
+    ],
+    "help": ""
+  }
+]

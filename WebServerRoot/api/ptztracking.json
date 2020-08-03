@@ -1,0 +1,48 @@
+﻿{
+    "header": "Tracking",
+    "okResult": "UploadJSON",
+    "name": "PTZTracking",
+    "sections": [
+        {
+            "header": "Settings",
+            "displayType": "Form",
+            "items": [
+              {
+                "text": "trackingmode",
+                "value": "",
+                "type": "Select",
+                "bindto": "settings.ptzautotrackmode",
+                "options": [{ "text": "AnyDirection", "value": "0"   },
+                  { "text": "Verticalonly", "value": "1" },
+                  { "text": "Horizontalonly","value": "2" }]
+              },
+              {
+                "text": "Reverse",
+                "value": "",
+                "type": "Boolean",
+                "bindto": "settings.ptzautotrackreverse",
+                "live": true,
+                "help": ""
+              },
+              { "text": "TrackStopDelay", "value": 0, "type": "Int32", "min": 100, "max": 10000, "bindto": "settings.ptzmaxtrackdelay", "help": "Max time to track for based on movement area (ms)" },
+              { "text": "AutoHome", "value": "", "type": "Boolean", "bindto": "settings.ptzautohome", "live": true,"help": ""  },
+              {
+                "text": "HomeCommand",
+                "value": "",
+                "type": "Select",
+                "bindto": "settings.ptzautohomecommand",
+                "options": "PTZCOMMANDS"
+              },
+              {
+                "text": "autohomedelay",
+                "value": 0,
+                "type": "Int32",
+                "min": 1,
+                "max": 9999,
+                "bindto": "settings.ptzautohomedelay",
+                "help": ""
+              }
+            ]
+        }
+    ]
+}

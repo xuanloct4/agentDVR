@@ -1,0 +1,84 @@
+﻿{
+    "header": "Action Configuration",
+    "okResult": "UploadJSON",
+    "name": "EditAction",
+    "ident": "new",
+    "sections": [
+      {
+        "header": "Action",
+        "displayType": "Form",
+        "help": "ActionHelp",
+        "items": [
+          {
+            "text": "Active",
+            "value": "",
+            "type": "Boolean",
+            "bindto": "active",
+            "id": "chkActive"
+          },
+          {
+            "text": "When",
+            "value": "",
+            "type": "Select",
+            "bindto": "mode",
+            "id": "ddlMode",
+            "options": [
+              {
+                "text": "Alert",
+                "value": "alert"
+              },
+              {
+                "text": "Alert Finished",
+                "value": "alertstopped"
+              },
+              {
+                "text": "switchobjectoff",
+                "value": "disable"
+              },
+              {
+                "text": "switchobjecton",
+                "value": "enable"
+              },
+              {
+                "text": "Manual Alert",
+                "value": "manualalert"
+              },
+              {
+                "text": "Reconnect Failed",
+                "value": "reconnectfailed"
+              },
+              {
+                "text": "Recording Finished",
+                "value": "recordingstopped"
+              },
+              {
+                "text": "Recording Started",
+                "value": "recordingstarted"
+              },
+              {
+                "text": "Source Disconnected",
+                "value": "disconnect"
+              },
+              {
+                "text": "Source Reconnected",
+                "value": "reconnect"
+              },
+              {
+                "text": "Tag Detected",
+                "value": "tagdetected"
+              }
+            ]
+          },
+          {
+            "text": "Do",
+            "value": "",
+            "type": "Select",
+            "bindto": "type",
+            "options": "ACTIONS",
+            "command": "editaction"
+          },
+          { "PARAMS": "" }
+        ]
+      }
+    ]
+}

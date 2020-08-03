@@ -1,0 +1,15 @@
+﻿[
+  {
+    "text": "Wasapi",
+    "value": "",
+    "type": "Header",
+    "notranslate": true
+  },
+  {
+    "text": "Device",
+    "value": "",
+    "type": "Select",
+    "bindto": "settings.sourcename",
+    "options": "DEVICELIST"
+  }
+]

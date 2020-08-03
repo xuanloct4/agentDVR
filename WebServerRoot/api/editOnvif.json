@@ -1,0 +1,16 @@
+﻿{
+    "header": "Onvif",
+    "okResult": "UploadJSON",
+    "name": "EditOnvif",
+    "sections": [
+        {
+            "header": "Settings",
+            "displayType": "Form",
+            "items": [
+              { "text": "Pan Speed", "value": "", "type": "Slider", "range": false, "min": 1, "max": 100, "bindto": "settings.onvif.panspeed" },
+              { "text": "Tilt Speed", "value": "", "type": "Slider", "range": false, "min": 1, "max": 100, "bindto": "settings.onvif.tiltspeed" },
+              { "text": "Zoom Speed", "value": "", "type": "Slider", "range": false, "min": 1, "max": 100, "bindto": "settings.onvif.zoomspeed" }
+            ]
+        }
+    ]
+}

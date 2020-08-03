@@ -1,0 +1,206 @@
+﻿{
+    "header": "Edit Camera",
+    "okResult": "UploadJSON",
+    "name": "EditCamera",
+    "sections": [
+        {
+            "header": "General",
+            "displayType": "Form",
+            "items": [
+              { "text": "Name", "value": "", "type": "String", "bindto": "name" },
+                { "text": "Enabled", "value": "", "type": "Boolean", "bindto": "settings.active", "live": true },
+                {
+                  "text": "Source Type",
+                  "value": 0,
+                  "type": "SelectButton",
+                  "bindto": "settings.sourceindex",
+                  "id": "ddlSourceType",
+                  "options": "SOURCETYPES",
+                  "live": true,
+                  "action": "editsource",
+                  "buttontext": "..."
+                },
+                { "text": "Resize", "value": "", "type": "Boolean", "bindto": "settings.resize", "live": true  },
+                { "text": "Plugin", "value": "", "type": "Boolean", "bindto": "settings.pluginenabled","live": true},
+                {
+                  "text": "Plugin",
+                  "value": 0,
+                  "type": "SelectButton",
+                  "bindto": "settings.plugin",
+                  "id": "ddlPlugin",
+                  "options": "PLUGINS",
+                  "live": true,
+                  "action": "editplugin",
+                  "buttontext": "...",
+                  "help": "See server settings to add plugins"
+                },
+                { "text": "Scheduling", "value": "", "type": "Boolean", "bindto": "settings.schedule" },
+                { "text": "Schedule", "value": "...", "type": "Button", "action": "showschedule" },
+                {
+                  "text": "Flip",
+                  "value": 0,
+                  "type": "Select",
+                  "bindto": "rotateMode",
+                  "options": "ROTATEMODES",
+                  "live": true
+                }
+            ]
+        },
+      {
+        "header": "Audio",
+        "displayType": "Form",
+        "items": [
+          { "text": "Microphone", "value": "...", "type": "Button", "action": "editcameramic" },  
+          { "text": "Configure", "value": "...", "type": "Button", "action": "editmic" },  
+          { "text": "Ignore Audio", "value": "", "type": "Boolean", "bindto": "settings.ignoreaudio" }
+        ]
+      },
+        {
+            "header": "Recording",
+            "displayType": "Form",
+            "items": [
+              { "text": "Mode","value": "","type": "Select","bindto": "detector.recordmode","options": [{"text": "Detect","value": 0},{"text": "Alert","value": 1},{"text": "None","value": 2}]},
+              { "text": "Encoder", "value": "","type": "Select","bindto": "gpu.encoder", "options": "ENCODERS", "help": "Software is better quality, hardware is faster" },
+              { "text": "Max Framerate", "value": 10, "type": "Int32", "min": 1, "max": 200, "bindto": "settings.maxframeraterecord" },
+              { "text": "Max Record Time", "value": 0, "type": "Int32", "min": 1, "max": 999999999999, "bindto": "recorder.maxrecordtime", "help": "Maximum time to record before starting a new file (s)" },
+              { "text": "Min Record Time", "value": 0, "type": "Int32", "min": 1, "max": 999999999999, "bindto": "recorder.minrecordtime", "help": "Minimum time to record (s)" }
+            ]
+        },{
+        "header": "Snapshots",
+        "displayType": "Form",
+        "items": [
+          {
+            "text": "Enabled",
+            "value": "",
+            "type": "Boolean",
+            "bindto": "savelocal.enabled"
+          },
+          {
+            "text": "Mode",
+            "value": "",
+            "type": "Select",
+            "bindto": "savelocal.mode",
+            "options": [
+              { "text": "Motion", "value": 0 },
+              { "text": "Alert", "value": 1 },
+              { "text": "Interval", "value": 2 }
+            ]
+          },
+          { "text": "Quality", "value": 0, "type": "Slider", "range": false, "min": 60, "max": 100, "bindto": "savelocal.quality" },
+          { "text": "Overlay Text", "value": "", "type": "String", "bindto": "savelocal.text" },
+          { "text": "Filename", "value": "", "type": "String", "bindto": "savelocal.filename", "help": "Example: {0:yyyy-MM-dd_HH-mm-ss_fff}.jpg or {C}.jpg" },
+          { "text": "Counter Max", "value": 0, "type": "Int32", "min": 1, "max": 9999999999, "bindto": "savelocal.countermax" },
+          { "text": "Interval", "value": 0, "type": "Decimal", "min": 1, "max": 9999999999, "bindto": "savelocal.intervalnew", "help": "When mode is interval saves a frame (s)" },
+          { "text": "Delay", "value": 0, "type": "Decimal", "min": 0, "max": 9999, "bindto": "savelocal.minimumdelay", "help": "When mode is motion or alert, minimum time between snapshots (s)" }
+        ]
+      },
+        {
+            "header": "Detector",
+            "displayType": "Form",
+            "items": [
+              { "text": "Area", "value": "ZONEMAP", "type": "ZoneManager", "help": "Draw area to monitor. Live motion and trigger range is displayed at the bottom." },
+              {
+                    "text": "Detector",
+                    "value": "",
+                    "type": "SelectButton",
+                    "bindto": "detector.type",
+                    "options": [
+                        { "text": "None", "value": "None" },
+                        { "text": "Simple", "value": "Simple" },
+                        { "text": "Tracking","value": "Tracking"},
+                        { "text": "TripWires","value": "TripWires"},
+                        { "text": "Speed","value": "Speed"},  
+                        { "text": "People","value": "people"},
+                        { "text": "Objects", "value": "objects"},
+                        { "text": "Onvif", "value": "onvif"}
+                    ],
+                    "live": true,
+                    "action": "editdetector",
+                    "buttontext": "..."
+              },
+                {
+                    "text": "Overlay",
+                    "value": "",
+                    "type": "Boolean",
+                    "bindto": "detector.highlight",
+                    "live": true
+                },
+                { "text": "Color", "value": "", "type": "Color", "bindto": "detector.color", "help": "Color of the motion detection overlay" },
+                { "text": "Sensitivity", "value": [ ], "type": "Slider", "min": 1, "max": 100, "range": true, "bindto": "detector.minsensitivity,detector.maxsensitivity", "id": "arrSensitivity", "help": "This controls how much motion triggers the motion detector.", "live": true },
+                { "text": "Gain", "value": 0, "type": "Decimal", "min": 1, "max": 100, "bindto": "detector.gain", "help": "Multiplier for the motion detector.", "id": "numGain","live": true }
+            ]
+        },
+        {
+            "header": "Alerts",
+            "displayType": "Form",
+            "items": [
+                { "text": "Enabled", "value": "", "type": "Boolean", "bindto": "alerts.active" },
+                {
+                    "text": "Mode",
+                    "value": "",
+                    "type": "Select",
+                    "bindto": "alerts.mode",
+                    "options": [
+                        { "text": "Detected", "value": "detected" },
+                        { "text": "Not Detected", "value": "notdetected" }
+                    ]
+                },
+                { "text": "Messaging", "value": "", "type": "Boolean", "bindto": "settings.messaging" },
+                { "text": "Actions", "value": "...", "type": "Button", "action": "showactions", "help": "Specify actions to take on alert" },
+                { "text": "Intervals", "value": "", "type": "Header", "bindto": "" },
+              {
+                "text": "Minimum Interval",
+                "value": 0,
+                "type": "Int32",
+                "min": 1,
+                "max": 99999999,
+                "bindto": "alerts.minimuminterval",
+                "help": "Minimum time between alerts (s)"
+              }
+            ]
+        },
+        {
+            "header": "PTZ",
+            "displayType": "Form",
+            "items": [
+                {
+                    "text": "Model",
+                    "value": "",
+                    "type": "Select",
+                    "bindto": "ptz,ptzentryindex",
+                    "id": "ptzModelList",
+                  "options": [],
+                  "live": true 
+                },
+                { "text": "Pelco", "value": "...", "type": "Button", "action": "editpelco" },
+                { "text": "Onvif", "value": "...", "type": "Button", "action": "editonvif" },  
+                { "text": "PTZURL", "value": "", "type": "String", "bindto": "settings.ptzurlbase", "help": "Leave blank to use default. Example: http://192.168.0.10/command.cgi" },
+                { "text": "Port", "value": "", "type": "Int32", "bindto": "settings.ptzport" },
+                { "text": "Channel", "value": "", "type": "String", "bindto": "settings.ptzchannel" },
+                { "text": "Username", "value": "", "type": "String", "bindto": "settings.ptzusername" },
+                { "text": "Password", "value": "", "type": "Password", "bindto": "settings.ptzpassword" },
+                { "text": "Flip-X", "value": "", "type": "Boolean", "bindto": "settings.ptzflipx" },
+                { "text": "Flip-Y", "value": "", "type": "Boolean", "bindto": "settings.ptzflipy","help":"Use if your camera is mounted upside down etc" }
+            ]
+        },
+        {
+            "header": "Storage",
+            "displayType": "Form",
+            "items": [
+                {
+                    "text": "Drive",
+                    "value": "",
+                    "type": "Select",
+                    "bindto": "settings.directoryIndex",
+                    "options": "DIRECTORIES",
+                    "help": "Add or edit locations in settings"
+                },
+                { "text": "Folder", "value": "", "type": "String", "bindto": "directory", "help": "Relative folder path from storage location" },
+                { "text": "Management", "value": "", "type": "Boolean", "bindto": "settings.storagemanagement.enabled" },
+                { "text": "Archive", "value": "", "type": "Boolean", "bindto": "settings.storagemanagement.archive" },
+                { "text": "Max Size", "value": "", "type": "Int32", "bindto": "settings.storagemanagement.maxsize", "help": "Maximum size of folder (MB)" },
+                { "text": "Max Age", "value": "", "type": "Int32", "bindto": "settings.storagemanagement.maxage", "help":  "Maximum age of content (hours)" }
+            ]
+        }
+    ]
+}

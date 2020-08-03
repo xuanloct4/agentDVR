@@ -1,0 +1,65 @@
+﻿{
+  "header": "AI",
+  "okResult": "UploadJSON",
+  "name": "EditAI",
+  "sections": [
+    {
+      "header": "AI",
+      "noTranslate": true,
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "Find Object",
+          "value": "",
+          "type": "String",
+          "bindto": "detector.findobject",
+          "help": "Object to look for"
+        },
+        {
+          "text": "Available",
+          "value": "[OBJECTS]",
+          "type": "Info",
+          "noTranslate": true
+        },
+        {
+          "text": "Confidence",
+          "value": 0,
+          "type": "Int32",
+          "min": 0,
+          "max": 100,
+          "bindto": "detector.confidence",
+          "help": "Minimum Confidence"
+        },
+        {
+          "text": "Alert Condition",
+          "value": "0",
+          "type": "Select",
+          "bindto": "detector.alertcondition",
+          "options": [
+            {
+              "text": "Equals",
+              "value": 0
+            },
+            {
+              "text": "More Than",
+              "value": 1
+            },
+            {
+              "text": "Less Than",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "text": "Alert Number",
+          "value": 0,
+          "type": "Int32",
+          "min": 0,
+          "max": 100,
+          "bindto": "detector.alertcount",
+          "help": "alert when count reached"
+        }
+      ]
+    }
+  ]
+}

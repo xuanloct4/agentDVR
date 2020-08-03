@@ -1,0 +1,6 @@
+﻿[
+    { "text": "Source", "value": "", "type": "Header" },
+    { "text": "URL", "value": "", "type": "String", "bindto": "settings.sourcename" },
+    { "text": "SampleRate", "value": "", "type": "Int32", "min": 0, "max": 196000, "bindto": "settings.samples" },
+    { "text": "Channels", "value": "", "type": "Int32", "min": 1,"max": 6, "bindto": "settings.channels" }
+  ]

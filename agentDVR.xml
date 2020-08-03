@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-16"?>
+<objects xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Version>2860</Version>
+  <Views>[{"name":"0","mode":"grid","objects":[{"oid":3,"ot":2},{"oid":4,"ot":2}],"maxWidth":1440,"maxHeight":644,"backColor":"#222222","id":3,"typeID":2,"focused":true},{"name":"1","mode":"grid","objects":[]},{"name":"2","mode":"grid","objects":[]},{"name":"3","mode":"grid","objects":[]},{"name":"4","mode":"grid","objects":[]},{"name":"5","mode":"grid","objects":[]},{"name":"6","mode":"grid","objects":[]},{"name":"7","mode":"grid","objects":[]},{"name":"8","mode":"grid","objects":[]}]</Views>
+  <cameras>
+    <camera id="4" name="Camera" description="" directory="PIMZV" flipx="false" flipy="false" rotateMode="None" x="66" y="80" width="640" height="360" resolution="320x240" ptz="-5" locationIndex="0">
+      <settings desktopmouse="false">
+        <sourceindex>9</sourceindex>
+        <videosourcestring>1</videosourcestring>
+        <recordsourcestring />
+        <onvifident>http://192.168.1.4:8899/onvif/device_service</onvifident>
+        <login>Home CCTV</login>
+        <password>Pa110234</password>
+        <plugin />
+        <pluginconfig />
+        <pluginenabled>true</pluginenabled>
+        <useragent>Mozilla/5.0</useragent>
+        <suppressnoise>true</suppressnoise>
+        <audiomodel>None</audiomodel>
+        <usehttp10>false</usehttp10>
+        <active>true</active>
+        <notifyondisconnect>false</notifyondisconnect>
+        <framerate>10</framerate>
+        <micpair>2</micpair>
+        <enablemask>true</enablemask>
+        <maskzonemap>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</maskzonemap>
+        <timestampformatter>FPS: {FPS} {0:G} </timestampformatter>
+        <timestamplocation>1</timestamplocation>
+        <timestampfontsize>10</timestampfontsize>
+        <timestampoffset>0</timestampoffset>
+        <timestampforecolor>255,255,255</timestampforecolor>
+        <timestampbackcolor>70,70,70</timestampbackcolor>
+        <timestampshowback>true</timestampshowback>
+        <loopfile>false</loopfile>
+        <ptzflipx>false</ptzflipx>
+        <ptzflipy>false</ptzflipy>
+        <ptzrotate90>false</ptzrotate90>
+        <ptzport>80</ptzport>
+        <ptzchannel>0</ptzchannel>
+        <ptzautotrack>false</ptzautotrack>
+        <ptzautotrackreverse>false</ptzautotrackreverse>
+        <ptzautohome>false</ptzautohome>
+        <ptzautohomecommand />
+        <ptzautohomedelay>30</ptzautohomedelay>
+        <ptzautotrackmode>0</ptzautotrackmode>
+        <ptzmaxtrackdelay>1500</ptzmaxtrackdelay>
+        <maxframerate>10</maxframerate>
+        <maxframeraterecord>10</maxframeraterecord>
+        <reconnectinterval>0</reconnectinterval>
+        <namevaluesettings />
+        <accessgroups>home</accessgroups>
+        <forcebasic>true</forcebasic>
+        <crossbarindex>0</crossbarindex>
+        <cookies />
+        <borderTimeout>0</borderTimeout>
+        <headers />
+        <analyseduration>0</analyseduration>
+        <timeout>8000</timeout>
+        <nobuffer>true</nobuffer>
+        <rtspmode>1</rtspmode>
+        <prefer_tcp>true</prefer_tcp>
+        <procAmpConfig />
+        <messaging>true</messaging>
+        <directoryIndex>0</directoryIndex>
+        <fillMode>0</fillMode>
+        <order>-1</order>
+        <ffmpegoptions />
+        <vlcoptions>:network-caching=1000
+:live-caching=10
+:file-caching=3000</vlcoptions>
+        <dvrmodel>Mobile</dvrmodel>
+        <dvrchannel>0</dvrchannel>
+        <schedule>true</schedule>
+        <youtube>
+          <public>true</public>
+          <tags>Agent, Motion Detection, Surveillance</tags>
+          <category>People</category>
+        </youtube>
+        <cloudprovider>
+          <provider>None</provider>
+          <recordings>false</recordings>
+          <images>false</images>
+          <path>[MEDIATYPE]/[NAME]/</path>
+        </cloudprovider>
+        <tokenconfig>
+          <tokenpath />
+          <tokenpost />
+          <tokenport>80</tokenport>
+        </tokenconfig>
+        <storagemanagement>
+          <enabled>false</enabled>
+          <maxsize>1024</maxsize>
+          <maxage>72</maxage>
+          <archive>false</archive>
+        </storagemanagement>
+        <pip>
+          <enabled>false</enabled>
+          <config />
+        </pip>
+        <pelco>
+          <comport>COM1</comport>
+          <baudrate>9600</baudrate>
+          <databit>8</databit>
+          <stopbit>One</stopbit>
+          <parity>Odd</parity>
+          <address>1</address>
+        </pelco>
+        <onvif>
+          <panspeed>50</panspeed>
+          <tiltspeed>50</tiltspeed>
+          <zoomspeed>100</zoomspeed>
+          <rtspport>0</rtspport>
+          <timeout>15</timeout>
+        </onvif>
+      </settings>
+      <dewarp />
+      <gpu />
+      <ftp>
+        <ready>true</ready>
+        <enabled>false</enabled>
+        <filename>mylivecamerafeed.jpg</filename>
+        <intervalnew>10</intervalnew>
+        <counter>0</counter>
+        <countermax>20</countermax>
+        <ftpcounter>0</ftpcounter>
+        <minimumdelay>0</minimumdelay>
+        <mode>0</mode>
+        <text>https://www.ispyconnect.com/</text>
+        <savelocal>false</savelocal>
+        <quality>75</quality>
+        <localfilename>{0:yyyy-MM-dd_HH-mm-ss_fff}.jpg</localfilename>
+      </ftp>
+      <savelocal>
+        <enabled>false</enabled>
+        <filename>{0:yyyy-MM-dd_HH-mm-ss_fff}.jpg</filename>
+        <intervalnew>10</intervalnew>
+        <counter>0</counter>
+        <countermax>20</countermax>
+        <minimumdelay>0</minimumdelay>
+        <mode>0</mode>
+        <text>https://www.ispyconnect.com/</text>
+        <quality>75</quality>
+      </savelocal>
+      <tagging>
+        <enabled>false</enabled>
+        <tagsnapshots>false</tagsnapshots>
+        <tagrecordings>false</tagrecordings>
+        <minscore>60</minscore>
+        <alerttags />
+      </tagging>
+      <detector zonemap="111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111" type="None" calibrationdelay="15" color="#26c9ff" recordondetect="false" recordonalert="false" recordmode="0" highlight="true" />
+      <recorder inactiverecord="8" minrecordtime="15" timelapse="0" timelapseframes="0" quality="5" />
+      <alerts minimuminterval="60" active="true" mode="detected" />
+      <alertevents>
+        <entries />
+      </alertevents>
+      <ptzschedule active="false" suspend="false">
+        <entries />
+      </ptzschedule>
+    </camera>
+  </cameras>
+  <microphones>
+    <microphone id="2" name="Camera 4 mic" description="" directory="EYKCR" x="3" y="56" width="160" height="40">
+      <settings>
+        <sourceindex>4</sourceindex>
+        <samples>16000</samples>
+        <bits>16</bits>
+        <channels>1</channels>
+        <needsupdate>false</needsupdate>
+        <active>true</active>
+        <volume>50</volume>
+        <gain>100</gain>
+        <messaging>true</messaging>
+        <order>-1</order>
+        <displaymode>0</displaymode>
+        <deletewav>true</deletewav>
+        <decompress>true</decompress>
+        <notifyondisconnect>false</notifyondisconnect>
+        <ffmpegoptions />
+        <vlcoptions>:network-caching=1000
+:live-caching=10
+:file-caching=3000</vlcoptions>
+        <reconnectinterval>0</reconnectinterval>
+        <accessgroups />
+        <timeout>8000</timeout>
+        <analyzeduration>2000</analyzeduration>
+        <decoder>ffmpeg</decoder>
+        <storagemanagement>
+          <enabled>false</enabled>
+          <maxsize>1024</maxsize>
+          <maxage>72</maxage>
+          <archive>false</archive>
+        </storagemanagement>
+        <directoryIndex>0</directoryIndex>
+        <plugin />
+        <pluginconfig />
+        <pluginenabled>true</pluginenabled>
+        <schedule>false</schedule>
+        <cloudprovider>
+          <provider>Google Drive</provider>
+          <recordings>false</recordings>
+          <path>[MEDIATYPE]/[NAME]/</path>
+        </cloudprovider>
+      </settings>
+      <detector sensitivity="60" minsensitivity="60" nosoundinterval="30" soundinterval="0" recordondetect="false" recordonalert="false" recordmode="2" enabled="false" />
+      <recorder inactiverecord="8" minrecordtime="15" maxrecordtime="900" />
+      <alerts minimuminterval="60" active="true" mode="detected">
+        <executefile />
+      </alerts>
+      <alertevents>
+        <entries />
+      </alertevents>
+    </microphone>
+  </microphones>
+  <schedule>
+    <entries />
+  </schedule>
+  <actions>
+    <entries />
+  </actions>
+  <locations>
+    <entries>
+      <entry name="Home" color="#ff0000" />
+    </entries>
+  </locations>
+  <profiles>
+    <entries>
+      <profile name="Home" />
+      <profile name="Away" />
+      <profile name="Night" />
+    </entries>
+  </profiles>
+</objects>

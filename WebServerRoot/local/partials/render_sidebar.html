@@ -1,0 +1,40 @@
+﻿<div class="sidebar-header">
+    <h4>
+        <b data-bind="text:data.header"></b> <small data-bind="text:data.version"></small>
+        <!-- ko if: data.subHeader -->
+        <div><h6><small class="text-muted ml-1" data-bind="html:data.subHeader"></small></h6></div>
+        <!-- /ko -->
+    </h4>
+</div>
+<div class="sidebar-content">
+    <!-- ko if: isMenu()-->
+    <ul class="list-unstyled components">
+        <!-- ko foreach: data.items-->
+        <li>
+            <a data-bind="attr:{href:'#sbm_'+$index()},html:value" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle"></a>
+            <ul class="collapse show list-unstyled" data-bind="attr:{id:'sbm_'+$index()}">
+                <!-- ko foreach: subItems-->
+                <!-- ko if: type()=="ButtonIcon"-->
+                <li>
+                    <a href="#" data-bind="value: value,html:value, click:editing.ui.click"></a>
+                </li>
+                <!-- /ko -->
+                <!-- ko if: type()=="Button"-->
+                <li>
+                    <a href="#" data-bind="value: value,html:value, click:editing.ui.click"></a>
+                </li>
+                <!-- /ko -->
+                <!-- /ko -->
+            </ul>
+        </li>
+        <!-- /ko-->
+    </ul>
+    <!-- /ko -->
+    <!-- ko ifnot: isMenu()-->
+    <div data-bind="foreach: data.items">
+        <!-- ko if: type()=="Info"-->
+        <div data-bind="html:value"></div>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+</div>

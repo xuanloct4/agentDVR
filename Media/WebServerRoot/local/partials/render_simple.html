@@ -1,0 +1,103 @@
+﻿<div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                <b data-bind="text:data.header"></b> <small data-bind="text:data.version"></small>
+                <!-- ko if: data.subHeader -->
+                <div><h6><small class="text-muted ml-1" data-bind="html:data.subHeader"></small></h6></div>
+                <!-- /ko -->
+            </h4>
+        </div>
+        <div class="modal-body">
+            <div>
+                <div data-bind="foreach: data.items">
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <!-- ko if: type()=="String"-->
+                            <label class="col-form-label" data-bind="text:text"></label>
+                            <input type="text" autocorrect="off" autocapitalize="off" autocomplete="new-password" class="form-control" data-bind="attr:{'data-ispyid':$data.id||''}, textInput:value, event:{change:editing.ui.change}" />
+                            <!-- /ko -->
+                            <!-- ko if: type()=="Info"-->
+                            <div data-bind="html:value"></div>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="Header"-->
+                            <h5 data-bind="html:value"></h5>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="Button"-->
+                            <button type="button" class="btn btn-primary btn-block btn-sm" data-bind="value: value,html:value, click:editing.ui.click"></button>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="ButtonIcon"-->
+                            <button type="button" class="btn btn-default btn-block text-left" data-bind="html:value, click:editing.ui.click"></button>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="ButtonHighlight"-->
+                            <button type="button" class="btn btn-success btn-block btn-sm" data-bind="value: value,html:value, click:editing.ui.click"></button>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="HR"-->
+                            <hr />
+                            <!-- /ko -->
+                            <!-- ko if: type()=="Link"-->
+                            <a role="button" class="btn btn-primary btn-block btn-sm" data-bind="attr:{href:url},html:value" target="_blank"></a>
+                            <!-- /ko -->
+                            <!-- ko if: ["Int32","Decimal"].indexOf(type())>-1 -->
+                            <div class="form-group row">
+                                <label class="col-8 col-form-label" data-bind="text:text"></label>
+                                <div class="col-4">
+                                    <input type="number" data-bind="attr:{min:$data.min||0,max:$data.max||100}, textInput: value, event:{change:editing.ui.change}" class="form-control" />
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="Select"-->
+                            <label class="col-form-label" data-bind="text:text"></label>
+                            <select class="form-control" data-bind="options: options, optionsText: 'text', optionsValue: 'value', value: value, event:{change:editing.ui.change}">
+                                <!-- ko if: options.length==0-->
+                                <option disabled="disabled" selected="selected" data-bind="text:$root.translate('None')"></option>
+                                <!-- /ko -->
+                            </select>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="HTML"-->
+                            <div data-bind="html:value"></div>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="SelectButton"-->
+                            <div class="input-group">
+                                <select class="form-control" data-bind="options: options, optionsText: 'text', optionsValue: 'value', value: value, event:{change:editing.ui.change}">
+                                    <!-- ko if: options.length==0-->
+                                    <option disabled="disabled" selected="selected" data-bind="text:$root.translate('None')"></option>
+                                    <!-- /ko -->
+                                </select>
+                                <span class="input-group-append">
+                                    <button class="btn btn-info" type="button" data-bind="attr:{id:($data.id||'')+'_button'}, click:editing.ui.click,text:buttontext"></button>
+                                </span>
+                            </div>
+                            <!-- /ko -->
+                            <!-- ko if: type()=="Boolean"-->
+                            <div class="form-group row">
+                                <label class="col-8 col-form-label" data-bind="text:text"></label>
+                                <div class="col-4">
+                                    <input type="checkbox" class="customSwitch" data-bind="attr:{id:$data.id},toggle: value, checked:value, event:{change:editing.ui.change}" data-size="sm">
+                                </div>
+                            </div>
+                            <!-- /ko -->
+                            <!-- ko if: $data.help  -->
+                            <div class="small pl-2" data-bind="text:help"></div>
+                            <!-- /ko -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--ko ifnot: editing.helpers.HideFooter($data)-->
+        <div class="modal-footer">
+            <!--ko if: editing.helpers.OKOnly($data)-->
+            <button type="button" onclick="editing.ui.ok()" class="btn btn-primary" data-bind="text:$root.translate('OK')"></button>
+            <!-- /ko -->
+            <!--ko if: editing.helpers.CancelOnly($data)-->
+            <button type="button" onclick="editing.ui.close()" class="btn btn-warning" data-bind="text:$root.translate('Cancel')"></button>
+            <!-- /ko -->
+            <!--ko if: editing.helpers.FullOptions($data)-->
+            <button type="button" onclick="editing.ui.ok()" class="btn btn-primary" data-bind="text:$root.translate('OK')"></button>
+            <button type="button" onclick="editing.ui.close()" class="btn btn-warning" data-bind="text:$root.translate('Cancel')"></button>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+    </div>
+</div>

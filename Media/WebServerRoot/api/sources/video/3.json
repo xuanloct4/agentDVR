@@ -1,0 +1,31 @@
+﻿[
+  {
+    "text": "USB/ Local Source",
+    "value": "",
+    "type": "Header"
+  },
+  {
+    "text": "Device",
+    "value": "",
+    "type": "Select",
+    "bindto": "settings.videosourcestring",
+    "command": "editsource&sourcetypeid=3",
+    "options": "DEVICELIST"
+  },
+  {
+    "text": "Video Resolution",
+    "value": "",
+    "type": "Select",
+    "bindto": "settings.namevaluesettings",
+    "nvident": "propindex",
+    "options": "VIDEORESOLUTIONS"
+  },
+  {
+    "text": "Audio",
+    "value": "",
+    "type": "Select",
+    "options": "AUDIODEVICELIST",
+    "bindto": "settings.namevaluesettings",
+    "nvident": "audiodev"
+  }
+]

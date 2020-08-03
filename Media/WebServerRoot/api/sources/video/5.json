@@ -1,0 +1,55 @@
+﻿[
+  {
+    "text": "Nest",
+    "value": "",
+    "type": "Header",
+    "notranslate": true  
+  },
+  {
+    "text": "Public URL",
+    "value": "",
+    "type": "String",
+    "bindto": "settings.nestident",
+    "help": "eg: https://video.nest.com/live/abc123",
+    "id": "txtNestURL"
+  },
+  {
+    "text": "Discover",
+    "value": "Get Video URLs",
+    "type": "Button",
+    "action": "nestdiscover",
+    "id": "btnNestDiscover"
+  },
+  {
+    "text": "Video URL",
+    "value": "",
+    "type": "Select",
+    "bindto": "settings.videosourcestring",
+    "id": "ddlNestURLs",
+    "options": "NESTURL"
+  },
+  {
+    "text": "Decoder",
+    "value": "",
+    "type": "Select",
+    "bindto": "gpu.decoder",
+    "options": [
+      {
+        "text": "FFMPEG",
+        "value": "",
+        "noTranslate": true
+      },
+      {
+        "text": "VLC",
+        "value": "vlc",
+        "noTranslate": true
+      },
+      {
+        "text": "GPU",
+        "value": "auto",
+        "noTranslate": true
+      }
+    ],
+    "help": ""
+  }
+]

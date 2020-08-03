@@ -1,0 +1,81 @@
+﻿{
+  "header": "Detector",
+  "okResult": "UploadJSON",
+  "name": "EditDetector",
+  "sections": [
+    {
+      "header": "Detector",
+      "displayType": "Form",
+      "items": [
+        {
+          "text": "detectorframesize",
+          "value": "0",
+          "type": "Select",
+          "bindto": "detector.framesizeindex",
+          "options": [
+            {
+              "text": "Small",
+              "value": 0
+            },
+            {
+              "text": "Medium",
+              "value": 1
+            },
+            {
+              "text": "Large",
+              "value": 2
+            }
+          ],
+          "help": "Size of the motion frame",
+          "live": true
+        },
+        {
+          "text": "Process Interval",
+          "value": 0,
+          "type": "Int32",
+          "min": 0,
+          "max": 10000,
+          "bindto": "detector.processinterval",
+          "help": "ms delay between processing frames",
+          "live": true
+        },
+        {
+          "text": "Use GPU",
+          "value": "",
+          "type": "Boolean",
+          "bindto": "detector.usegpu"
+        },
+        {
+          "text": "Alert Condition",
+          "value": "0",
+          "type": "Select",
+          "bindto": "detector.alertcondition",
+          "options": [
+            {
+              "text": "Equals",
+              "value": 0
+            },
+            {
+              "text": "More Than",
+              "value": 1
+            },
+            {
+              "text": "Less Than",
+              "value": 2
+            }
+          ]
+        },
+        {
+          "text": "Alert Number",
+          "value": 0,
+          "type": "Int32",
+          "min": 0,
+          "max": 1000,
+          "bindto": "detector.alertcount",
+          "help": "alert when count reached",
+          "live": true
+        }
+      ]
+    }
+  ]
+}

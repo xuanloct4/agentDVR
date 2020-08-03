@@ -1,0 +1,86 @@
+﻿{
+  "header": "Schedule Entry",
+  "okResult": "UploadJSON",
+  "name": "EditSchedule",
+  "ident": "new",
+  "sections": [
+    {
+      "header": "Schedule Entry",
+      "displayType": "Form",
+      "items": [
+        { "text": "Enabled", "value": true, "type": "Boolean", "bindto": "active" },
+        {
+          "text": "Time",
+          "value": "",
+          "type": "Time",
+          "bindto": "time",
+          "step": "60", 
+          "help": "(local time at iSpy Server is TIME)"
+        },
+        {
+          "text": "Days",
+          "value": "",
+          "type": "CheckedList",
+          "bindto": "daysofweek",
+          "converter": "daysofweek",
+          "options": [
+            {
+              "text": "Sun",
+              "value": true,
+              "id": "chkSun"
+            },
+            {
+              "text": "Mon",
+              "value": true,
+              "id": "chkMon"
+            },
+            {
+              "text": "Tue",
+              "value": true,
+              "id": "chkTue"
+            },
+            {
+              "text": "Wed",
+              "value": true,
+              "id": "chkWed"
+            },
+            {
+              "text": "Thu",
+              "value": true,
+              "id": "chkThu"
+            },
+            {
+              "text": "Fri",
+              "value": true,
+              "id": "chkFri"
+            },
+            {
+              "text": "Sat",
+              "value": true,
+              "id": "chkSat"
+            }
+
+          ]
+        },
+        {
+          "text": "Command",
+          "value": 0,
+          "type": "Select",
+          "bindto": "typeid",
+          "id": "ddlScheduleAction",
+          "options": "SCHEDULEACTIONS",
+          "command": "toggleAlertList"
+        },
+        {
+          "text": "Alert",
+          "value": "",
+          "id": "ddlAlertActionList",
+          "type": "Select",
+          "bindto": "parameter",
+          "options": "ALERTLIST",
+          "help": "Applies to Alert Action On and Alert Action Off commands"
+        }
+      ]
+    }
+  ]
+}

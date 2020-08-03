@@ -1,0 +1,123 @@
+﻿{
+  "header": "Detector",
+  "okResult": "UploadJSON",
+  "name": "EditDetector",
+  "sections": [
+    {
+      "header": "Detector",
+      "displayType": "Form",
+      "tabActive": true,
+      "items": [
+        {
+          "text": "DetectorView",
+          "value": "",
+          "type": "DetectorViewManager",
+          "help": "Detector View",
+          "overlay": true
+        },
+        {
+          "text": "detectorframesize",
+          "value": "0",
+          "type": "Select",
+          "bindto": "detector.framesizeindex",
+          "options": [
+            {
+              "text": "Small",
+              "value": 0
+            },
+            {
+              "text": "Medium",
+              "value": 1
+            },
+            {
+              "text": "Large",
+              "value": 2
+            }
+          ],
+          "help": "Size of the motion frame",
+          "live": true
+        },
+        {
+          "text": "Motion History",
+          "value": 0,
+          "type": "Slider",
+          "range": false,
+          "min": 1,
+          "max": 50,
+          "bindto": "detector.motionhistory",
+          "help": "Number of frames to use for analysis",
+          "live": true
+        },
+        {
+          "text": "Process Interval",
+          "value": 0,
+          "type": "Int32",
+          "min": 0,
+          "max": 10000,
+          "bindto": "detector.processinterval",
+          "help": "ms delay between processing frames",
+          "live": true
+        },
+        {
+          "text": "Width Limits",
+          "value": [],
+          "type": "Slider",
+          "range": true,
+          "id": "arrWidthLimits",
+          "min": 1,
+          "max": 80,
+          "bindto": "detector.minobjectwidth,detector.maxobjectwidth",
+          "help": "Size range of objects (percentage of width)",
+          "live": true
+        },
+        {
+          "text": "Height Limits",
+          "value": [],
+          "type": "Slider",
+          "range": true,
+          "id": "arrHeightLimits",
+          "min": 1,
+          "max": 80,
+          "bindto": "detector.minobjectheight,detector.maxobjectheight",
+          "help": "Size range of objects (percentage of height)",
+          "live": true
+        },
+        {
+          "text": "Minimum Travel",
+          "value": 0,
+          "type": "Slider",
+          "range": false,
+          "min": 0,
+          "max": 50,
+          "bindto": "detector.mintravel",
+          "help": "Distance object must move (percentage of width)",
+          "live": true
+        },
+        {
+          "text": "Minimum Time",
+          "value": 0,
+          "type": "Slider",
+          "range": false,
+          "min": 0,
+          "max": 50,
+          "bindto": "detector.mintime",
+          "help": "Minimum time object must be observed for (x 0.1s)",
+          "live": true
+        },
+        {
+          "text": "Display Total",
+          "type": "Boolean",
+          "bindto": "detector.count",
+          "live": true
+        },
+        {
+          "text": "Heat Map",
+          "type": "Boolean",
+          "bindto": "detector.heatmap",
+          "help": "Heat map help",
+          "live": true
+        }
+      ]
+    }
+  ]
+  }

@@ -1,0 +1,22 @@
+﻿{
+    "header": "FTP Server",
+    "okResult": "UploadJSON",
+    "name": "EditFTPServer",
+    "ident": "new",
+    "sections": [
+        {
+            "header": "Server",
+            "displayType": "Form",
+            "items": [
+                { "text": "Name", "value": "", "type": "String", "bindto": "name" },
+                { "text": "Username", "value": "", "type": "String", "bindto": "username" },
+                { "text": "Password", "value": "", "type": "Password", "bindto": "password" },
+                { "text": "Server", "value": "ftp://", "type": "String", "bindto": "server" },
+                { "text": "Port", "value": 21, "type": "Int32", "bindto": "port" },
+                { "text": "Use SFTP", "value": false, "type": "Boolean", "bindto": "sftp" },
+                { "text": "Use Passive", "value": true, "type": "Boolean", "bindto": "usepassive" },
+                { "text": "Rename", "value": false, "type": "Boolean", "bindto": "rename", "help": "Upload a temporary file and rename" }
+            ]
+        }
+    ]
+}
